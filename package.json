@@ -1,0 +1,33 @@
+{
+	"name": "kt-uni-seed",
+	"version": "1.0.0",
+	"description": "kt-uni-app",
+	"main": "main.js",
+	"dependencies": {
+		"@babel/runtime-corejs2": "^7.9.2",
+		"crypto-js": "^4.0.0",
+		"js-base64": "^2.5.2",
+		"moment": "^2.24.0",
+		"qs": "^6.9.3",
+		"uni-simple-router": "^1.5.2"
+	},
+	"devDependencies": {
+		"compression-webpack-plugin": "^3.1.0",
+		"webpack": "^4.42.1",
+		"webpack-bundle-analyzer": "^3.8.0",
+		"copy-webpack-plugin": "^5.1.1",
+		"vconsole": "^3.3.4"
+	},
+	"scripts": {},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ErrorJe/online-medical-c-doctor.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/ErrorJe/online-medical-c-doctor/issues"
+	},
+	"homepage": "https://github.com/ErrorJe/online-medical-c-doctor#readme"
+}

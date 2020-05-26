@@ -1,0 +1,37 @@
+/* 用于 ucharts 的自定义样式 */
+.qiun-padding {
+	padding: 2%;
+	width: 96%;
+}
+
+.qiun-bg-white {
+	background: #ffffff;
+}
+
+.qiun-title-bar {
+	width: 100%;
+	padding: 10rpx 2%;
+	flex-wrap: nowrap;
+}
+
+.qiun-title-dot-light {
+	border-left: 10rpx solid #0ea391;
+	padding-left: 10rpx;
+	font-size: 32rpx;
+	color: #000000;
+}
+
+/* 圆弧进度样式 */
+.qiun-charts3 {
+	width: 750rpx;
+	height: 250rpx;
+	background-color: #ffffff;
+	position: relative;
+}
+
+.charts3 {
+	position: absolute;
+	width: 250rpx;
+	height: 250rpx;
+	background-color: #ffffff;
+}

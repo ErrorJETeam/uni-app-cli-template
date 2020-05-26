@@ -1,0 +1,61 @@
+import http from '@/utils/request/index.js'
+import {bizModules, xjModules, getBaseUrl} from '@/common/js/config.js'
+import utils from '@/common/js/utils.js'
+import store from '@/store/index.js'
+import { addSign } from '@/utils/cryption.js'
+
+const {file} = bizModules
+
+// 文件上传（新疆）：获取的是 文件 id
+export async function fileUpload_xj(File, path, name) {
+	const accessToken = await store.dispatch('wxUser/getAsseccToken')
+	return http.upload(`${xjModules.file}/japi/v1/file/upload`,{
+		filePath: path ? path : File.path,
+		name: 'file',
+		formData: {
+			'filename': name ? name : File.name
+		},
+		header:{
+			accessToken
+		}
+	})
+}
+
+// 文件下载（新疆）
+export function fileDownload_xj(url) {
+	return http.download(url)
+}
+
+// 文件下载（新疆）:传入文件 id
+export function fileDownload_xj_id(id) {
+	return http.download(`${xjModules.file}/japi/v1/file/download?fileId=${id}`)
+}
+
+// 文件上传（上海）: 入参为文件 | 本地临时路径+名字
+// 返回 md5
+export function fileUpload(File, path, name) {
+	return http.upload(`${file}/file/upload`, {
+		filePath: path ? path : File.path,
+		name: 'file',
+		formData: {
+			'filename': name ? name : File.name
+		},
+		custom: {
+			cryption: false
+		}
+	})
+}
+
+// 文件下载：拿到本地临时路径
+export function fileDownload(md5) {
+	return http.download(`${file}/file/${md5}`, {
+		custom: {
+			cryption: false
+		}
+	})
+}
+
+// 文件加载：用于 src 自动解析路径
+export function imgByMd5(md5) {
+	return `${getBaseUrl('file')}/file/${md5}?${utils.obj2str(addSign())}`
+}

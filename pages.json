@@ -1,0 +1,70 @@
+{
+	// 第一项是首页，尾项不能加逗号
+	"pages": [{
+		"path": "pages/home/home",
+		"style": {
+			"navigationBarTitleText": "首页"
+		}
+	}, {
+		"path": "pages/home/list",
+		"style": {
+			"navigationBarTitleText": "列表页"
+		}
+	}, {
+		"path": "pages/message/message",
+		"style": {
+			"navigationBarTitleText": "消息页",
+			"disableScroll": true, // 禁止原生页面滚动, 解决Android小程序下拉卡顿的问题
+			"app-plus": {
+				"bounce": "none" // 取消APP端iOS回弹,避免与下拉刷新冲突,以及bounce边缘1秒卡顿
+			}
+		}
+	}, {
+		"path": "pages/mine/mine",
+		"style": {
+			"navigationBarTitleText": "我的"
+		}
+	}],
+	"globalStyle": {
+		"navigationBarTextStyle": "black", // 导航栏文本颜色，仅支持 black/white
+		"navigationBarTitleText": "KT-uni seed", // 导航栏标题内容
+		"navigationBarBackgroundColor": "#fff", // 导航栏背景颜色（同状态栏背景色）
+		"backgroundColor": "#F5F5F5", // 窗口的背景色
+		"app-plus": {
+			"titleNView": false
+		}
+	},
+	// 底部导航
+	"tabBar": {
+		"color": "#ADADAD", // 文字颜色
+		"selectedColor": "#FEE42A", // 选中颜色 | 注意选中图标的颜色要一样
+		"backgroundColor": "#FFF", // 背景色
+		"borderStyle": "black", // 上边框颜色，只有 white | black
+		"list": [ // tab 列表
+			{
+				"pagePath": "pages/home/home",
+				"text": "首页",
+				"iconPath": "static/tabbar/home.png",
+				"selectedIconPath": "static/tabbar/homeed.png"
+			},
+			{
+				"pagePath": "pages/home/list",
+				"text": "列表",
+				"iconPath": "static/tabbar/list.png",
+				"selectedIconPath": "static/tabbar/listed.png"
+			},
+			{
+				"pagePath": "pages/message/message",
+				"text": "消息页",
+				"iconPath": "static/tabbar/message.png",
+				"selectedIconPath": "static/tabbar/messageed.png"
+			},
+			{
+				"pagePath": "pages/mine/mine",
+				"text": "我的",
+				"iconPath": "static/tabbar/my.png",
+				"selectedIconPath": "static/tabbar/myed.png"
+			}
+		]
+	}
+}
