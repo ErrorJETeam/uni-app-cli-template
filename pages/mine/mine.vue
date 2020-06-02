@@ -8,7 +8,7 @@
 
 <script>
 import { mockLongList } from '@/apis/mockData.js'
-import { apiGetRelatedVideo } from '@/apis/core.js'
+import { apiGetRelatedVideo } from '@/apis/modules/core.js'
 import { createNamespacedHelpers } from 'vuex'
 const { mapActions, mapMutations } = createNamespacedHelpers('user')
 import * as types from "@/store/action-types";

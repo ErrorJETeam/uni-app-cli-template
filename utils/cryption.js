@@ -9,11 +9,9 @@ import {
 import utils from '@/common/js/utils.js'
 
 /* #ifdef MP-WEIXIN */
-import {
-	Base64
-} from 'js-base64'
-const atob = Base64.decode
-const btoa = Base64.encode
+const UTF8 = Crypto.enc.Utf8
+const btoa = (str) => Crypto.enc.Base64.stringify(UTF8.parse(str))
+const atob = (bs64) => Crypto.enc.Base64.parse(bs64).toString(UTF8)
 /* #endif */
 
 // *******
@@ -61,6 +59,16 @@ function encryption(data, yek, options) {
 function decryption(bs64Str, yek, options) {
 	let ret = Crypto.AES.decrypt(bs64Str.toString(), Crypto.enc.Utf8.parse(yek), options).toString(Crypto.enc.Utf8)
 	return JSON.parse(ret)
+}
+
+// 环信 IM 登录
+export function decryption_IM(bs64Str) {
+	const yek = 'jyhk202012345678'
+	const options = {
+		...options,
+		iv:Crypto.enc.Utf8.parse('KX9yeFmBueeFADK4')
+	}
+	return Crypto.AES.decrypt(bs64Str.toString(), Crypto.enc.Utf8.parse(yek), options).toString(Crypto.enc.Utf8)
 }
 
 function encrypt(oriData) {

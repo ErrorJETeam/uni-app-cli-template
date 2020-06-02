@@ -1,7 +1,9 @@
 // import Request from './request.js'
 import Request from '@/vendor/request/index.js'
 import config from '@/common/js/config.js'
+import store from '@/store'
 import { statusMsg } from '@/utils/exception_code.js'
+import {getStorageSync} from '@/common/js/utils.js'
 import {
 	addSign,
 	addAppToken,
@@ -40,6 +42,7 @@ http.validateStatus = (statusCode) => {
 
 // 请求拦截器
 http.interceptor.request((options, cancel) => {
+	const accessToken = getStorageSync('wx_tokens') ? getStorageSync('wx_tokens').accessToken : ''
 	if (options.custom.addSign) {
 		options.params = {
 			...options.params,
@@ -49,7 +52,8 @@ http.interceptor.request((options, cancel) => {
 
 	options.header = {
 		...options.header,
-		chis_token: uni.getStorageSync('chis_token') || ''
+		chis_token: uni.getStorageSync('chis_token') || '',
+		accessToken
 	}
 
 	addAppToken(options)
@@ -69,7 +73,7 @@ http.interceptor.request((options, cancel) => {
 	// 如果token不存在，调用cancel 会取消本次请求，但是该函数的catch() 仍会执行
 	// 接收一个参数，会传给catch((err) => {}) err.errMsg === 'token 不存在'
 	// if (!token) cancel('token 不存在')
-
+	
 	return options
 })
 
@@ -92,9 +96,10 @@ http.interceptor.response((res) => { // 响应数据
 	} else {
 		data = res.data.data
 	}
-
+	
 	return data
-}, (res) => { // 响应错误
+}, async (res) => { // 响应错误
+	uni.hideLoading()
 	const options = res.config
 	options.custom.cryption && decrypt(res)
 	
@@ -102,25 +107,29 @@ http.interceptor.response((res) => { // 响应数据
 		return res.data || res
 	}
 	
-	// statusCode HTTP码 | error_code 后端定义码
-	let {
-		statusCode,
-		data: {
-			code: error_code,
-			errorCode
-		}
-	} = res
+	let error_code
+	const statusCode = res.statusCode // statusCode HTTP码
+	const data = res.data
+	if(data) {
+		error_code = data.code || data.errorCode // error_code 后端定义码
+	} else {
+		return Promise.reject(res)
+	}
 	
-	error_code = error_code || errorCode
-	
-	if (options.custom.auth && error_code === '10001') {
+	if (options.custom.auth && error_code == 1) {
 		showError(error_code, res.data)
 		uni.setStorageSync('chis_token', '')
+	} else if (error_code == 40101) { // accessToken 失效
+		await store.dispatch('wxUser/quickLogin', true)
+		return http.request(res.config);
+	} else if(error_code == 40103) { // 微信登录凭证失效
+		await store.dispatch('wxUser/quickLogin', false)
+		return http.request(res.config);
 	} else {
 		error_code ? showError(error_code, res.data) : showError(statusCode, res.data)
 	}
 
-	return res.data || res
+	return Promise.reject(res.data || res)
 })
 
 function showError(error_code, serverError) {

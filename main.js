@@ -36,6 +36,11 @@ Vue.prototype.$api = api // API 全局使用
 
 // 图片加持(原型对象测试)
 Vue.prototype.$imgSuffix = '?imageView&thumbnail=369x0&quality=75&tostatic=0';
+import staticImage, {staticServerUrl} from '@/common/static/images.js'
+Vue.prototype.$staticImage = staticImage // JS 用
+Vue.prototype.$staticServer = staticServerUrl // css 用
+// 图片缺省占位图
+Vue.prototype.$imgError = staticImage['no-img']
 
 Vue.config.productionTip = false
 

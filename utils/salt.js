@@ -1,6 +1,8 @@
 /* #ifdef MP-WEIXIN */
-import {Base64} from 'js-base64'
-const atob = Base64.decode
+import Crypto from 'crypto-js'
+const UTF8 = Crypto.enc.Utf8
+const btoa = (str) => Crypto.enc.Base64.stringify(UTF8.parse(str))
+const atob = (bs64) => Crypto.enc.Base64.parse(bs64).toString(UTF8)
 /* #endif */
 
 const saltKey = [
@@ -41,11 +43,17 @@ let saltCode = {
 	],
 	
 	// 小程序
-	miniprogram: [
+	miniprogramDev: [
 		`${atob('b3RzcC1taW5pLXhqLXdlYiA')}`,
 		`${atob('MzZlMmhrMmJhcTF3MGowZWxkMW85eDNncnR2eHZmeWE')}`,
 		`${atob('YWlkcTNvdHE0M2g3bmhkYQ')}`,
 		`${atob('YWlkcTNvdHE0M2g3bmg2OA')}`
+	],
+	miniprogramProd: [
+		`${atob('b3RzcC1taW5pLWg1')}`,
+		`${atob('ODZlMmhrMmJhcTF3MGowZWxkMW85eDNncnR2eHZmeWE')}`,
+		`${atob('YWlkcTNvdHE0M2g3bmhkOQ')}`,
+		`${atob('YWlkcTdvdHE2M2g3bmhkOA')}`
 	]
 }
 
@@ -66,7 +74,7 @@ const evJudge = function() {
 	/* #endif */
 	
 	/* #ifdef MP-WEIXIN */
-	saltCode = saltCode.miniprogram
+	saltCode = process.env.NODE_ENV === 'development' ? saltCode.miniprogramDev : saltCode.miniprogramProd
 	/* #endif */
 }
 
