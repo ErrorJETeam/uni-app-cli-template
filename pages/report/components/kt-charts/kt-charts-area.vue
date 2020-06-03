@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import uCharts from 'vendor/u-charts/u-charts.js'
+import uCharts from '../u-charts/u-charts.min.js'
 
 let _self
 let canvasObj = {} // 图表实例集合
@@ -34,26 +34,32 @@ export default {
 		chartId: {
 			type: String,
 			default: ''
+		},
+		options: {
+			type: Object,
+			default: _ => ({
+				area: {},
+				legend: {}
+			})
 		}
 	},
 	data() {
 		return {
 			// canvas 尺寸
 			cWidth: '',
-			cHeight: ''
+			cHeight: '',
+			max: 0
 		}
 	},
-	mounted() {
-		_self = this
-
-		// px 转换
-		this.cWidth = uni.upx2px(this.width)
-		this.cHeight = uni.upx2px(this.height)
-	},
+	
 	watch: {
 		chartData: {
 			handler: function(v) {
-				this.$nextTick(function(){
+				_self = this
+				this.cWidth = uni.upx2px(this.width)
+				this.cHeight = uni.upx2px(this.height)
+				this.$nextTick(function() {
+					this.addYLine(4)
 					Object.keys(v).length && this.drawChartArea(this.chartId, v)
 				})
 			},
@@ -62,6 +68,24 @@ export default {
 		}
 	},
 	methods: {
+		// 根据最大值和平均值，Y 轴增加一条线
+		addYLine(number) {
+			const data = this.chartData.series
+			if (!data) return
+			let max = 0,
+				arr = [],
+				avg,
+				ret
+
+			data.forEach(item => (arr = [...arr, ...item.data]))
+
+			max = Math.max(...arr)
+			avg = arr.reduce((acc, val) => acc + val, 0) / arr.length
+			ret = max + Math.floor(avg / number)
+
+			this.max = ret
+		},
+
 		touchStart(e, id) {
 			lastMoveTime = Date.now()
 		},
@@ -123,7 +147,10 @@ export default {
 				series: chartData.series,
 				// 图例设置
 				legend: {
-					show: false
+					show: true,
+					float: 'center',
+					itemGap: 10,
+					..._self.options.legend
 				},
 				// X 轴
 				xAxis: {
@@ -133,18 +160,27 @@ export default {
 					gridType: 'dash', // 网格线类型 [dash 虚线 | solid 实线]
 					dashLength: 8, // 虚线时，间隔 px
 					boundaryGap: 'justify', //两端不留白配置
-					axisLineColor: '#ddd' ,// 轴线颜色
+					axisLineColor: '#ddd', // 轴线颜色
 					fontColor: '#999999',
-					labelCount: 7 // X轴最多显示的刻度
+					calibration: true // 刻度线
+					// labelCount: 7 ,// X轴最多显示的刻度， 不写就是给几个显示几个
+					// axisLine: false,
 				},
 				// Y 轴
 				yAxis: {
-					disabled: true, // 隐藏 Y 轴 (若选择隐藏，则不要去配置 min|max)
-					disableGrid: true,
-					gridType: 'dash',
-					gridColor: '#CCCCCC',
-					dashLength: 8,
-					splitNumber: 5
+					// disabled: false,
+					disableGrid: false,
+					gridType: 'solid',
+					gridColor: '#f5f5f5',
+					fontColor: '#999999',
+					splitNumber: 4,
+					data: [
+						{
+							axisLine: false,
+							format: val => val.toFixed(0),
+							max: _self.max
+						}
+					]
 				},
 				extra: {
 					area: {
@@ -152,12 +188,13 @@ export default {
 						opacity: 0.1, // 色块透明度
 						addLine: true, // 值之间的连线
 						width: 2, // 线宽度
-						gradient: false // 渐变色
+						gradient: false, // 渐变色
+						..._self.options.area
 					},
 					// 显示某个数据点内容框，有样式定制需求才配置，一般默认就有
 					tooltip: {
 						bgColor: '#1C8BE4',
-						bgOpacity: 1,
+						bgOpacity: 0.8,
 						gridColor: '#1C8BE4',
 						horizentalLine: false, // BUG 水平横线， 打开有问题，图标会变形跳动
 						// 数据标签和样式

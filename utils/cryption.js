@@ -1,6 +1,6 @@
 import Crypto from 'crypto-js'
 import qs from 'qs'
-import config from '@/common/js/config.js'
+import config from '@/common/config/config.js'
 import {
 	saltKey,
 	saltCode,

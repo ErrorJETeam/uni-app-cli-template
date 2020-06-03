@@ -23,7 +23,7 @@
 
 <script>
 import {addSign} from '@/utils/cryption.js';
-import {getBaseUrl} from '@/common/js/config.js'
+import {getBaseUrl} from '@/common/config/config.js'
 
 export default {
 	props: {

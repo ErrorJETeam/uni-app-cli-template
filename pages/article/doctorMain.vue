@@ -6,7 +6,7 @@
 		<!-- 卡片 -->
 		<view class="card bg">
 			<view class="info kt-flex kt-just-start">
-				<image class="info-avatar" src="@/static/image/doctor-avatar.png" mode=""></image>
+				<image class="info-avatar" :src="imgs['doctor-avatar']" mode=""></image>
 				<view class="info-body">
 					<view class="line1 mg-b30">
 						<text class="font30">{{ docInfo.empName }}</text>
@@ -65,6 +65,7 @@ export default {
 	},
 	data() {
 		return {
+			imgs:this.$staticImage,
 			fast: [
 				{ name: '我的文章', img: 'img/my-article.png', type: 'article' },
 				{ name: '我的草稿箱', img: 'img/draft.png', type: 'draft' }

@@ -1,5 +1,5 @@
 {
-    "name" : "online-medical-c-doctor",
+    "name" : "kt-uni-seed",
     "appid" : "__UNI__7C4E11E",
     "description" : "",
     "versionName" : "1.0.0",
@@ -57,11 +57,14 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "",
+        "appid" : "wx13209f85f0348925",
         "setting" : {
             "urlCheck" : false
         },
-        "usingComponents" : true
+        "usingComponents" : true,
+        "optimization" : {
+            "subPackages" : true
+        }
     },
     "mp-alipay" : {
         "usingComponents" : true

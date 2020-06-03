@@ -1,6 +1,6 @@
 // import Request from './request.js'
 import Request from '@/vendor/request/index.js'
-import config from '@/common/js/config.js'
+import config from '@/common/config/config.js'
 import store from '@/store'
 import { statusMsg } from '@/utils/exception_code.js'
 import {getStorageSync} from '@/common/js/utils.js'
@@ -12,6 +12,7 @@ import {
 } from '@/utils/cryption.js';
 
 const http = new Request()
+let cache
 
 // 设置全局配置
 http.setConfig((options) => {
@@ -59,7 +60,6 @@ http.interceptor.request((options, cancel) => {
 	addAppToken(options)
 
 	// 自定义属性配置
-	// options.custom.xxx
 	options.custom.cryption && handleEncrypt(options)
 
 	// 默认加载loading
@@ -120,11 +120,12 @@ http.interceptor.response((res) => { // 响应数据
 		showError(error_code, res.data)
 		uni.setStorageSync('chis_token', '')
 	} else if (error_code == 40101) { // accessToken 失效
+		cache = res.config
 		await store.dispatch('wxUser/quickLogin', true)
 		return http.request(res.config);
 	} else if(error_code == 40103) { // 微信登录凭证失效
 		await store.dispatch('wxUser/quickLogin', false)
-		return http.request(res.config);
+		return http.request(cache);
 	} else {
 		error_code ? showError(error_code, res.data) : showError(statusCode, res.data)
 	}

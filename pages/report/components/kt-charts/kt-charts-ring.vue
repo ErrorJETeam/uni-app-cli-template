@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import uCharts from 'vendor/u-charts/u-charts.js'
+import uCharts from '../u-charts/u-charts.min.js'
 
 let _self
 let canvasObj = {} // 图表实例集合

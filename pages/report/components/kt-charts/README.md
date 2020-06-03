@@ -38,8 +38,9 @@ chartData = {
 - height 高度
 - chart-id 必须传的，用于 canvas DOM 指定。名字不能重复
 - chart-data 如上数据
+- options，配置选项，目前可以配置 `legend | area`
 ```vue
-<kt-charts-area :width="735" :height="440" chart-id="chart-area" :chart-data="chartData">
+<kt-charts-area :width="735" :height="360" chart-id="chart-area" :chart-data="chartData" :options="{area:{type:'curve', opacity:0}, legend:{show: true}}">
 </kt-charts-area>
 ```
 
@@ -49,5 +50,13 @@ chartData = {
 
 ![](https://raw.githubusercontent.com/ErrorJe/ErrorJE.github.io/images/img/20200402142009.png)
 
+其他配置按照官方示例来就行，其中有一个常见但是在文档中很难看到描述的样式。
 
+每一个数据的描述部分，是可以自定义的
+
+![](https://raw.githubusercontent.com/ErrorJe/ErrorJE.github.io/images/img/20200403152100.png)
+
+具体代码参照：
+
+![](https://raw.githubusercontent.com/ErrorJe/ErrorJE.github.io/images/img/20200403152147.png)
 

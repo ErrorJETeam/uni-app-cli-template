@@ -3,7 +3,7 @@
 		<!-- tab 切换 -->
 		<view class="topbar">
 			<scroll-view class="scroll-view" scroll-x :show-scrollbar="false">
-				<view class="rel">
+				<view class="rel" style="line-height: unset;">
 					<view class="item" v-for="(item, index) in navList" :class="{ active: curNav == item.id }" :key="index" @click="switchNav(item.id, index)">
 						<view class="desc">{{ item.name }}</view>
 					</view>

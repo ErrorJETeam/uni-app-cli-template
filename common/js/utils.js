@@ -1,50 +1,7 @@
+import moment from 'moment'
+
 // 全局公共方法
 export default {
-	// 格式化时间戳
-	/**
-	 * 格式化时间
-	 * @param {value | 时间戳} 
-	 * @example formatTime(new Date().getTime())
-	 */
-	formatTime: (value) => {
-		var value = String(value);
-
-		function t(v) {
-			return v = v < 10 ? ("0" + v) : v;
-		}
-		String.prototype.ToString = function(value) {
-			var date = new Date(parseInt(this.substring(6, this.length - 2)));
-			value = value.replace("yyyy", date.getFullYear());
-			value = value.replace("yy", t(date.getFullYear().toString().substr(2)));
-			value = value.replace("MM", t(date.getMonth() + 1));
-			value = value.replace("dd", t(date.getDate()));
-			value = value.replace("hh", t(date.getHours()));
-			value = value.replace("mm", t(date.getMinutes()));
-			value = value.replace("ss", t(date.getSeconds()));
-			value = value.replace("ms", date.getMilliseconds())
-			return value;
-		};
-		return value.ToString("yyyy-MM-dd  hh:mm:ss");
-	},
-
-	// 时间格式化 Date.format('MM-dd')
-	format: function(date, fmt) {
-		var o = {
-			"M+": date.getMonth() + 1, //月份 
-			"d+": date.getDate(), //日 
-			"h+": date.getHours(), //小时 
-			"m+": date.getMinutes(), //分 
-			"s+": date.getSeconds(), //秒 
-			"q+": Math.floor((date.getMonth() + 3) / 3), //季度 
-			"S": date.getMilliseconds() //毫秒 
-		};
-		if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
-		for (var k in o)
-			if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[
-				k]).substr(("" + o[k]).length)));
-		return fmt;
-	},
-
 	// 判断是否为 promise
 	_isPromise: (obj) => {
 		return obj && (typeof obj === 'object' || typeof obj === 'function') && typeof obj.then === 'function'
@@ -73,7 +30,7 @@ export default {
 		return str;
 	},
 
-	obj2str:function(obj) {
+	obj2str: function(obj) {
 		let str = ''
 		let keys = Object.keys(obj)
 		for (let i = 0; i < keys.length; i++) {
@@ -84,5 +41,57 @@ export default {
 			}
 		}
 		return str
+	}
+}
+
+// 图片格式校验
+export const _validImgType = (tempFiles) => {
+	const reg = /\w(\.jpeg|\.png|\.jpg|\.bmp)/i
+	return tempFiles.every(img => reg.test(img.name))
+}
+
+// 判断数据类型
+export const judgeType = data => {
+	const toString = Object.prototype.toString;
+	const dataType =
+		toString
+		.call(data)
+		.replace(/\[object\s(.+)\]/, "$1")
+		.toLowerCase()
+	return dataType
+}
+
+// 同步设置缓存
+export const setStorageSync = (k, v) => uni.setStorageSync(k, judgeType(v) === 'object' ? JSON.stringify(v) : v)
+// 同步获取缓存
+export const getStorageSync = (k) => {
+	let storage = uni.getStorageSync(k)
+	if(!storage) return undefined
+	
+	const type = judgeType(JSON.parse(storage))
+	if (type === 'object') {
+		return JSON.parse(storage)
+	} else {
+		return storage
+	}
+}
+
+// 判断是否过期 accessToken | refreshToken | thdToken
+// preMinutes 提前 n 分钟
+// 过期返回 false
+export const judgeExpired = (tokenType, preMinutes = 0) => {
+	let tokens = getStorageSync('wx_tokens')
+	if (!tokens) {
+		return false
+	}
+	preMinutes = preMinutes * 60 * 1000 // 毫秒数
+	const now = moment().valueOf()
+	switch (tokenType) {
+		case 'accessToken': // 过期找 refresh
+			return now + preMinutes < tokens.accessTokenExpiresIn
+		case 'refreshToken': // 过期找 thdToken
+			return now + preMinutes < tokens.refreshTokenExpiresIn
+		case 'thdToken': // 过期重新登录
+			return now + preMinutes < tokens.thdTokenExpiresIn
 	}
 }

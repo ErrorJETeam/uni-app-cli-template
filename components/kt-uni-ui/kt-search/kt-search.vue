@@ -47,7 +47,7 @@ export default {
 	},
 	methods: {
 		onInput(e) {
-			console.log('正在输入', e);
+			// TODO
 		},
 		onSearch() {
 			this.$emit('on-search', this.key)

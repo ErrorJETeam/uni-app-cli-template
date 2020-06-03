@@ -3,7 +3,7 @@
 		<view class="list-item" :class="{'re': cardType === 're'}">
 			<view class="top kt-flex" :class="{'re': cardType === 're'}">
 				<view class="left kt-flex">
-					<slot name="top-img" v-if="cardType === 'in' && options.avatar"><image src="@/static/image/pat-avatar.png" mode=""></image></slot>
+					<slot name="top-img" v-if="cardType === 'in' && options.avatar"><image :src="imgs['pat-avatar']" mode=""></image></slot>
 					<slot name="top-left-text">小明</slot>
 				</view>
 				<view></view>
@@ -41,7 +41,9 @@ export default {
 		}
 	},
 	data() {
-		return {}
+		return {
+			imgs: this.$staticImage
+		}
 	},
 	methods: {
 		onTap() {
