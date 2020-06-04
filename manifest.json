@@ -83,7 +83,8 @@
         },
         "template" : "h5.html",
         "router" : {
-            "base" : ""
+            "base" : "/kt-uni/",
+            "mode" : "history"
         },
         "devServer" : {
             "https" : false

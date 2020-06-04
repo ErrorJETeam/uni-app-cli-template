@@ -12,3 +12,9 @@ view {
 	// 以盒模型显示
 	box-sizing: border-box;
 }
+
+// ios底部安全距离-padding
+.view-save-padding{
+	padding-bottom: constant(safe-area-inset-bottom) !important;  
+	padding-bottom: env(safe-area-inset-bottom) !important; 
+}

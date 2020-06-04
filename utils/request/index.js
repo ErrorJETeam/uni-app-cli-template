@@ -121,7 +121,7 @@ http.interceptor.response((res) => { // 响应数据
 		uni.setStorageSync('chis_token', '')
 	} else if (error_code == 40101) { // accessToken 失效
 		cache = res.config
-		await store.dispatch('wxUser/quickLogin', true)
+		await store.dispatch('wxUser/quickLogin', true) 
 		return http.request(res.config);
 	} else if(error_code == 40103) { // 微信登录凭证失效
 		await store.dispatch('wxUser/quickLogin', false)
