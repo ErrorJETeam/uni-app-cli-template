@@ -1,6 +1,6 @@
 export default [
 	{
-		path: '/pages/article/article',
+		path: '/pages/article/modules/article',
 		aliasPath: '/article',
 		name: 'article'
 	},
@@ -10,17 +10,17 @@ export default [
 		name: 'doctorMain'
 	},
 	{
-		path: '/pages/article/infoEdit',
+		path: '/pages/article/modules/infoEdit',
 		aliasPath: '/infoEdit',
 		name: 'infoEdit'
 	},
 	{
-		path: '/pages/article/articleList',
+		path: '/pages/article/modules/articleList',
 		aliasPath: '/articleList',
 		name: 'articleList'
 	},
 	{
-		path: '/pages/article/articleView',
+		path: '/pages/article/modules/articleView',
 		aliasPath: '/articleView',
 		name: 'articleView'
 	}

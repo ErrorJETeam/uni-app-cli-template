@@ -112,7 +112,7 @@
 			"root":"pages/article",
 			"pages": [
 				{
-					"path" : "article",
+					"path" : "modules/article",
 					"style" : {"navigationBarTitleText": "文章"}
 				},
 				{
@@ -125,15 +125,15 @@
 					}
 				},
 				{
-					"path" : "infoEdit",
+					"path" : "modules/infoEdit",
 					"style" : {"navigationBarTitleText": "信息编辑"}
 				},
 				{
-					"path" : "articleList",
+					"path" : "modules/articleList",
 					"style" : {"navigationBarTitleText": "文章列表"}
 				},
 				{
-					"path" : "articleView",
+					"path" : "modules/articleView",
 					"style" : {"navigationBarTitleText": "文章查看"}
 				}
 			]
