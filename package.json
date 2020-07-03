@@ -1,7 +1,7 @@
 {
-	"name": "kt-uni-seed",
+	"name": "yt-uni",
 	"version": "1.0.0",
-	"description": "kt-uni-app",
+	"description": "kt-uni",
 	"main": "main.js",
 	"dependencies": {
 		"crypto-js": "^4.0.0",
