@@ -1,7 +1,9 @@
+/* #ifndef MP-WEIXIN */
 page {
 	height: 100%;
 	box-sizing: border-box; /* 避免设置padding出现双滚动条的问题 */
 }
+/* #endif */
 
 .mescroll-uni-warp{
 	height: 100%;

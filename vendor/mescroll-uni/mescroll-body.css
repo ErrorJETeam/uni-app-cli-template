@@ -1,6 +1,8 @@
+/* #ifndef MP-WEIXIN */
 page {
 	-webkit-overflow-scrolling: touch; /* 使iOS滚动流畅 */
 }
+/* #endif */
 
 .mescroll-body {
 	position: relative; /* 下拉刷新区域相对自身定位 */
