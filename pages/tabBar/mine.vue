@@ -26,9 +26,6 @@ export default {
 		}
 	},
 	async onLoad() {
-		// 全局 $api使用
-		const res2 = mockLongList || (await this.$api.test.apiGetRelatedVideo())
-		console.log('请求接口2', res2)
 	},
 	async created() {
 		// vuex - actions 方法调用
