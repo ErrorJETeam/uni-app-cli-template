@@ -1,7 +1,8 @@
 // 域名
 const domains = {
-	dev: '',
-	prod: ''
+	dev: 'https://m.hsyuntai.com/medd/',
+	exp: 'https://m.hsyuntai.com/mede/',
+	prod: 'https://m.hsyuntai.com/med/'
 }
 
 // 业务模块
