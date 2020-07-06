@@ -4,7 +4,6 @@
 	"description": "kt-uni",
 	"main": "main.js",
 	"dependencies": {
-		"crypto-js": "^4.0.0",
 		"moment": "^2.24.0",
 		"qs": "^6.9.3",
 		"uni-simple-router": "^1.5.2",
@@ -13,8 +12,7 @@
 	"devDependencies": {
 		"webpack": "^4.42.1",
 		"webpack-bundle-analyzer": "^3.8.0",
-		"copy-webpack-plugin": "^5.1.1",
-		"vconsole": "^3.3.4"
+		"copy-webpack-plugin": "^5.1.1"
 	},
 	"scripts": {},
 	"repository": {

@@ -30,11 +30,6 @@ import MescrollUni from "@/vendor/mescroll-uni/mescroll-uni.vue"
 Vue.component('mescroll-body', MescrollBody)
 Vue.component('mescroll-uni', MescrollUni)
 
-// vconsole
-/* #ifndef MP-WEIXIN */
-import '@/vendor/vconsole.js'
-/* #endif */
-
 Vue.prototype.$utils = utils // 全局 util
 Vue.prototype.$api = api // API 全局使用
 
