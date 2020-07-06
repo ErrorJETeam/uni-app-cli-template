@@ -2,11 +2,10 @@ import http from '@/utils/request/index.js'
 import {bizModules, xjModules, getBaseUrl} from '@/common/config/config.js'
 import utils from '@/common/js/utils.js'
 import store from '@/store/index.js'
-import { addSign } from '@/utils/cryption.js'
 
 const {file} = bizModules
 
-// 文件上传（新疆）：获取的是 文件 id
+// 文件上传：获取的是 文件 id
 export function fileUpload_xj(File, path, name) {
 	return http.upload(`${xjModules.file}/japi/v1/file/upload`,{
 		filePath: path ? path : File.path,
@@ -17,7 +16,7 @@ export function fileUpload_xj(File, path, name) {
 	})
 }
 
-// 文件下载（新疆）
+// 文件下载
 export function fileDownload_xj(url) {
 	if(url.includes('http:')) {
 		url = url.replace('http', 'https')
@@ -25,7 +24,7 @@ export function fileDownload_xj(url) {
 	return http.download(url)
 }
 
-// 文件下载（新疆）:传入文件 id
+// 文件下载:传入文件 id
 export function fileDownload_xj_id(id) {
 	return http.download(`${xjModules.file}/japi/v1/file/download?fileId=${id}`)
 }
@@ -52,9 +51,4 @@ export function fileDownload(md5) {
 			cryption: false
 		}
 	})
-}
-
-// 文件加载：用于 src 自动解析路径
-export function imgByMd5(md5) {
-	return `${getBaseUrl('file')}/file/${md5}?${utils.obj2str(addSign())}`
 }

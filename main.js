@@ -6,8 +6,8 @@ import api from './apis'
 import utils from '@/common/js/utils.js';
 
 // uView - icon组件
-import KtIcon from "@/components/kt-icon/kt-icon.vue"
-Vue.component('kt-icon', KtIcon)
+import YtIcon from "@/components/yt-icon/yt-icon.vue"
+Vue.component('yt-icon', YtIcon)
 
 // filters
 import * as filters from '@/common/js/filters' 
@@ -35,12 +35,11 @@ Vue.prototype.$utils = utils // 全局 util
 Vue.prototype.$api = api // API 全局使用
 
 // 图片加持(原型对象测试)
-Vue.prototype.$imgSuffix = '?imageView&thumbnail=369x0&quality=75&tostatic=0';
 import staticImage, {staticServerUrl} from '@/common/static/images.js'
 Vue.prototype.$staticImage = staticImage // JS 用
-Vue.prototype.$staticServer = staticServerUrl // css 用
+
 // 图片缺省占位图
-Vue.prototype.$imgError = staticImage['no-img']
+Vue.prototype.$errorImg = require('static/image/default.png')
 
 Vue.config.productionTip = false
 

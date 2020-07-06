@@ -8,5 +8,5 @@
 - custom-prefix 就是 iconfont 的字体类名
 - name 就是 iconfont 点击复制代码得到的
 ```vue
-<kt-icon name="kt-shouye" custom-prefix="kt-icon" size="30" color="#888888"></kt-icon>
+<yt-icon name="yt-shouye" custom-prefix="yt-icon" size="30" color="#888888"></yt-icon>
 ```

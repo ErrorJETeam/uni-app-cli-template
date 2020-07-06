@@ -27,22 +27,8 @@ const router = new Router({
 
 // 全局路由前置守卫
 router.beforeEach((to, from, next) => {
-	const chis_token = uni.getStorageSync('chis_token')
 	const whiteList = ['/pages/login/login']
 	next()
-	// if (chis_token) {
-	// 	if (to.path === '/pages/login/login') {
-	// 		next('/')
-	// 	} else {
-	// 		next()
-	// 	}
-	// } else {
- //    if (whiteList.indexOf(to.path) !== -1) {
- //      next()
- //    } else {
- //      next({path:'/login'})
- //    }
- //  }
 })
 // 全局路由后置守卫
 router.afterEach((to, from) => {})
