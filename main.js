@@ -5,6 +5,10 @@ import store from './store'
 import api from './apis'
 import utils from '@/common/js/utils.js';
 
+// uView 库
+import uView from "uview-ui";
+Vue.use(uView);
+
 // uView - icon组件
 import YtIcon from "@/components/yt-icon/yt-icon.vue"
 Vue.component('yt-icon', YtIcon)

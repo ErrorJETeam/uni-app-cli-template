@@ -28,7 +28,25 @@
 		<block><view class="animated bounce">动画库演示</view></block>
 		<!-- moment 测试 -->
 		<view class="hr"></view>
-		<view>Moment 使用（-1周）:{{ $moment(new Date()).subtract(1,'w').format('YYYY-MM-DD') }}</view>
+		<view>
+			Moment 使用（-1周）:{{
+				$moment(new Date())
+					.subtract(1, 'w')
+					.format('YYYY-MM-DD')
+			}}
+		</view>
+
+		<!-- uView -->
+		<view class="hr"></view>
+		<block>
+			<text>uView 引入使用</text>
+			<u-button>默认按钮</u-button>
+			<u-button type="primary">主要按钮</u-button>
+			<u-button type="success">成功按钮</u-button>
+			<u-button type="info">信息按钮</u-button>
+			<u-button type="warning">警告按钮</u-button>
+			<u-button type="error">危险按钮</u-button>
+		</block>
 	</view>
 </template>
 
@@ -37,7 +55,7 @@ export default {
 	data() {
 		return {
 			key: 'value'
-		}
+		};
 	},
 
 	onLoad(opt) {
@@ -46,13 +64,13 @@ export default {
 
 	methods: {
 		onClick(e) {
-			this.$Router.push({ path: '/pages/biz/show', query: { msg: '测试 query 传参' }, params: { msg: '测试 params 传参' } })
+			this.$Router.push({ path: '/pages/biz/show', query: { msg: '测试 query 传参' }, params: { msg: '测试 params 传参' } });
 		},
 		goTab() {
-			this.$Router.pushTab({ name: 'myPage' })
+			this.$Router.pushTab({ name: 'myPage' });
 		}
 	}
-}
+};
 </script>
 
 <style lang="scss" scoped>

@@ -69,6 +69,10 @@
 		]
 	},
 
+	"easycom": {
+		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+	},
+
 	// 小程序开发页面
 	"condition": {
 		"current": 0, // 默认页面索引
