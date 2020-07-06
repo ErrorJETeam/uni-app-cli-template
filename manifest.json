@@ -1,5 +1,5 @@
 {
-    "name" : "kt-uni-seed",
+    "name" : "yt-miniprogram",
     "appid" : "__UNI__7C4E11E",
     "description" : "",
     "versionName" : "1.0.0",
@@ -83,7 +83,7 @@
         },
         "template" : "h5.html",
         "router" : {
-            "base" : "/kt-uni/",
+            "base" : "/yt-miniprogram/",
             "mode" : "history"
         },
         "devServer" : {
