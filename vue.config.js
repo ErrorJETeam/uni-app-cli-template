@@ -3,7 +3,6 @@ const path = require('path')
 const CopyPlugin = require('copy-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const webpack = require('webpack')
-const productionGzipExtensions = ['js', 'css', 'json', 'vue', 'html', 'scss']
 
 module.exports = {
 	configureWebpack: {
