@@ -10,7 +10,7 @@
 		"uview-ui": "^1.4.6"
 	},
 	"devDependencies": {
-		"compression-webpack-plugin": "^4.0.0",
+		"webpack-bundle-analyzer": "^3.8.0",
 		"copy-webpack-plugin": "^5.1.1",
 		"webpack": "^4.42.1"
 	},
