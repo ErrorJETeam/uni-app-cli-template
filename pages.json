@@ -33,7 +33,7 @@
 	// 全局样式
 	"globalStyle": {
 		"navigationBarTextStyle": "black", // 导航栏文本颜色，仅支持 black/white
-		"navigationBarTitleText": "KT uni-app", // 导航栏标题内容
+		"navigationBarTitleText": "YT uni-app", // 导航栏标题内容
 		"navigationBarBackgroundColor": "#fff", // 导航栏背景颜色（同状态栏背景色）
 		"backgroundColor": "#F5F5F5", // 窗口的背景色
 		"app-plus": {
