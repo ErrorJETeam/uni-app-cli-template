@@ -47,4 +47,6 @@ export default {
 @import 'vendor/colorui/icon.css';
 /* 动画库 */
 @import 'common/css/animate.css';
+/* uView 样式文件 */
+@import "uview-ui/index.scss";
 </style>
