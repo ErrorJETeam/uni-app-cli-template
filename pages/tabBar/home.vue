@@ -50,16 +50,12 @@
 	</view>
 </template>
 
-<script>
+<script
 export default {
 	data() {
 		return {
 			key: 'value'
 		};
-	},
-
-	onLoad(opt) {
-		// TODO
 	},
 
 	methods: {

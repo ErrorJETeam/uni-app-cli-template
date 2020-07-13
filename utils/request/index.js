@@ -12,9 +12,9 @@ let cache
 // 设置全局配置
 http.setConfig((options) => {
 	// 基地址
-	options.baseUrl = process.env.NODE_ENV === 'development' ?
-		config.baseUrl['dev'] :
-		config.baseUrl['prod']
+	options.baseURL = process.env.NODE_ENV === 'development' ?
+		config.baseURL['dev'] :
+		config.baseURL['prod']
 	// 请求头
 	options.header = {
 		...options.header,
@@ -33,8 +33,7 @@ http.validateStatus = (statusCode) => {
 }
 
 // 请求拦截器
-http.interceptor.request((options, cancel) => {
-
+http.interceptors.request.use((options, cancel) => {
 	options.header = {
 		...options.header,
 		chis_token: uni.getStorageSync('chis_token') || ''
@@ -52,7 +51,7 @@ http.interceptor.request((options, cancel) => {
 })
 
 // 响应拦截器
-http.interceptor.response((res) => { // 响应数据
+http.interceptors.response.use((res) => { // 响应数据
 	const options = res.config
 	let data // 返回数据
 	uni.hideLoading()

@@ -6,7 +6,7 @@ import http from '@/utils/request/index.js'
 	contentType: 默认 json（拿到的时候自动 JSON.parse）
  */
 
-export function apiGetRelatedVideo(data) {
+export function apiRequestTest(data) {
 	// 默认 get 请求
 	// hideLoading 配置是否开启 loading
 	return http.request({

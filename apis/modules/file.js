@@ -1,5 +1,5 @@
 import http from '@/utils/request/index.js'
-import {bizModules, xjModules, getBaseUrl} from '@/common/config/config.js'
+import {bizModules, xjModules, getBaseURL} from '@/common/config/config.js'
 import utils from '@/common/js/utils.js'
 import store from '@/store/index.js'
 
