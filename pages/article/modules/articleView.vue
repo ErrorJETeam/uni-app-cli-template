@@ -50,7 +50,7 @@
 <script>
 import { createNamespacedHelpers } from 'vuex'
 const { mapActions:articleActions } = createNamespacedHelpers('article')
-import jyfParser from "./components/jyf-parser/jyf-parser";
+import jyfParser from "../components/jyf-parser/jyf-parser";
 import ktModal from '@/components/kt-uni-ui/kt-modal/kt-modal.vue'
 import { imgByMd5 } from '@/apis/modules/file.js'
 

@@ -44,8 +44,8 @@ const { mapActions:userDocActions } = createNamespacedHelpers('userDoc')
 const { mapActions:articleActions } = createNamespacedHelpers('article')
 import { getArticleDraft, addOrModifyDraft } from '@/apis/modules/article.js'
 import { fileUpload, imgByMd5 } from '@/apis/modules/file.js'
-import ktEditor from './components/kt-editor/kt-editor.vue'
-import upload from './components/upload.vue'
+import ktEditor from '../components/kt-editor/kt-editor.vue'
+import upload from '../components/upload.vue'
 import ktModal from '@/components/kt-uni-ui/kt-modal/kt-modal.vue'
 
 export default {

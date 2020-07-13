@@ -23,7 +23,7 @@
 
 <script>
 import {addSign} from '@/utils/cryption.js';
-import {getBaseUrl} from '@/common/config/config.js'
+import {getBaseURL} from '@/common/config/config.js'
 
 export default {
 	props: {
@@ -39,7 +39,7 @@ export default {
 	},
 	methods: {
 		fetchImgByMd5(md5) {
-			return `${getBaseUrl('file')}/file/${md5}?${this.$utils.obj2str(addSign())}`
+			return `${getBaseURL('file')}/file/${md5}?${this.$utils.obj2str(addSign())}`
 		},
 		
 		goArticleView() {

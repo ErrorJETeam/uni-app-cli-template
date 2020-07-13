@@ -25,7 +25,7 @@
 import { createNamespacedHelpers } from 'vuex'
 const { mapActions:userDocActions } = createNamespacedHelpers('userDoc')
 const { mapActions:articleActions } = createNamespacedHelpers('article')
-import articleItem from './components/article-item.vue'
+import articleItem from '../components/article-item.vue'
 export default {
 	components: {
 		articleItem

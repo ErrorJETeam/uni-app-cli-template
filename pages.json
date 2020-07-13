@@ -1,12 +1,12 @@
 {
 	// 第一项是首页，尾项不能加逗号
-	"pages": [
-		{
+	"pages": [{
 			"path": "pages/tabBar/home",
 			"style": {
 				"navigationBarTitleText": "首页"
-				/* #ifdef MP-WEIXIN */
-				,"navigationStyle":"custom"
+					/* #ifdef MP-WEIXIN */
+					,
+				"navigationStyle": "custom"
 				/* #endif */
 			}
 		},
@@ -15,10 +15,10 @@
 			"style": {
 				"navigationBarTitleText": "列表页",
 				// 禁止原生页面滚动, 解决Android小程序下拉卡顿的问题
-				"disableScroll": true, 
+				"disableScroll": true,
 				"app-plus": {
 					// 取消APP端iOS回弹,避免与下拉刷新冲突,以及bounce边缘1秒卡顿
-					"bounce": "none" 
+					"bounce": "none"
 				}
 			}
 		},
@@ -29,7 +29,7 @@
 			}
 		}
 	],
-	
+
 	// 全局样式
 	"globalStyle": {
 		"navigationBarTextStyle": "black", // 导航栏文本颜色，仅支持 black/white
@@ -40,7 +40,7 @@
 			"titleNView": false
 		}
 	},
-	
+
 	// 底部导航
 	"tabBar": {
 		"color": "#ADADAD", // 文字颜色
@@ -68,73 +68,80 @@
 			}
 		]
 	},
-	
+
+	// easycom
+	"easycom": {
+		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+	},
+
 	// 小程序开发页面
 	"condition": {
 		"current": 0, // 默认页面索引
-		"list": [
-			{
-				"name": "首页", //模式名称
-				"path": "pages/tabBar/home" ,//启动页面，必选
-				"query": "id=1263312047987253249"
-			}
-		]
+		"list": [{
+			"name": "首页", //模式名称
+			"path": "pages/tabBar/home", //启动页面，必选
+			"query": "id=1263312047987253249"
+		}]
 	},
-	
+
 	// 小程序分包配置
 	"subPackages": [
 		// 1 业务相关
 		{
-			"root":"pages/biz",
-			"pages":[
-				{
-					"path": "show",
-					"style": {
-						"navigationBarTitleText": "展示"
-					}
+			"root": "pages/biz",
+			"pages": [{
+				"path": "show",
+				"style": {
+					"navigationBarTitleText": "展示"
 				}
-			]
+			}]
 		},
 		// 2 报表管理
 		{
-			"root":"pages/report",
-			"pages":[
-				{
-					"path": "statistical",
-					"style": {
-						"navigationBarTitleText": "统计"
-					}
+			"root": "pages/report",
+			"pages": [{
+				"path": "statistical",
+				"style": {
+					"navigationBarTitleText": "统计"
 				}
-			]
+			}]
 		},
 		// 3 文章
 		{
-			"root":"pages/article",
-			"pages": [
-				{
-					"path" : "modules/article",
-					"style" : {"navigationBarTitleText": "文章"}
+			"root": "pages/article",
+			"pages": [{
+					"path": "modules/article",
+					"style": {
+						"navigationBarTitleText": "文章"
+					}
 				},
 				{
-					"path" : "doctorMain",
-					"style" : {
+					"path": "doctorMain",
+					"style": {
 						"navigationBarTitleText": "个人号"
-						/* #ifdef MP-WEIXIN */
-						,"navigationStyle":"custom"
+							/* #ifdef MP-WEIXIN */
+							,
+						"navigationStyle": "custom"
 						/* #endif */
 					}
 				},
 				{
-					"path" : "modules/infoEdit",
-					"style" : {"navigationBarTitleText": "信息编辑"}
+					"path": "modules/infoEdit",
+					"style": {
+						"navigationBarTitleText": "信息编辑"
+					}
 				},
 				{
-					"path" : "modules/articleList",
-					"style" : {"navigationBarTitleText": "文章列表"}
+					"path": "modules/articleList",
+					"style": {
+						"navigationBarTitleText": "文章列表"
+					}
 				},
 				{
-					"path" : "modules/articleView",
-					"style" : {"navigationBarTitleText": "文章查看"}
+					"path": "modules/articleView",
+					"style": {
+						"navigationBarTitleText": "文章查看"
+					}
 				}
 			]
 		}
