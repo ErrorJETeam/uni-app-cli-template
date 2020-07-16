@@ -2,7 +2,7 @@ import {
 	saltKey,
 	saltCode,
 	key
-} from '@/utils/salt.js';
+} from '@/common/config/salt.js';
 
 // 域名
 const domains = {
@@ -49,7 +49,8 @@ const config = {
 		prod: domains['xj_prod']
 	},
 
-	key: { ...key},
+	key: { ...key
+	},
 
 	salt: {
 		[saltKey[0]]: saltCode[0],

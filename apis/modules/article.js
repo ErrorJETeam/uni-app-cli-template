@@ -1,4 +1,4 @@
-import http from '@/utils/request/index.js'
+import http from '@request/index.js'
 import {
 	bizModules
 } from '@/common/config/config.js'

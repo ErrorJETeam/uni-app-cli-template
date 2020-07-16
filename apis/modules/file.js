@@ -1,8 +1,8 @@
-import http from '@/utils/request/index.js'
+import http from '@request/index.js'
 import {bizModules, xjModules, getBaseURL} from '@/common/config/config.js'
-import utils from '@/common/js/utils.js'
+import utils from '@/common/utils/util.js'
 import store from '@/store/index.js'
-import { addSign } from '@/utils/cryption.js'
+import { addSign } from '@/common/utils/request/cryption.js'
 
 const {file} = bizModules
 

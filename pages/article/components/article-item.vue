@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import {addSign} from '@/utils/cryption.js';
+import {addSign} from '@request/cryption.js';
 import {getBaseURL} from '@/common/config/config.js'
 
 export default {

@@ -1,4 +1,4 @@
-import utils from '@/common/js/utils.js';
+import utils from '@/common/utils/util.js';
 
 // 统计页面数据格式化
 export function formatChartRing(data) {

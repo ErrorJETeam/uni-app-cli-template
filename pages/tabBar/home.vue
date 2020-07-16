@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import { dateFormat } from '@/common/js/time.js';
+import { dateFormat } from '@/common/utils/time.js';
 export default {
 	data() {
 		return {

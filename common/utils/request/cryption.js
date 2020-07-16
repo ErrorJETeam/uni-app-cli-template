@@ -5,8 +5,8 @@ import {
 	saltKey,
 	saltCode,
 	IM
-} from '@/utils/salt.js'
-import utils from '@/common/js/utils.js'
+} from '@/common/config/salt.js'
+import utils from '@/common/utils/util.js'
 
 /* #ifdef MP-WEIXIN */
 const UTF8 = Crypto.enc.Utf8
@@ -35,7 +35,7 @@ export function addSign() {
 // *******
 export function addAppToken(http) {
 	let keys = saltCode
-	if(http.custom.IM) {
+	if (http.custom.IM) {
 		keys = IM
 	}
 	const timestamp = (new Date()).valueOf()
@@ -66,7 +66,7 @@ export function decryption_IM(bs64Str) {
 	const yek = 'jyhk202012345678'
 	const options = {
 		...options,
-		iv:Crypto.enc.Utf8.parse('KX9yeFmBueeFADK4')
+		iv: Crypto.enc.Utf8.parse('KX9yeFmBueeFADK4')
 	}
 	return Crypto.AES.decrypt(bs64Str.toString(), Crypto.enc.Utf8.parse(yek), options).toString(Crypto.enc.Utf8)
 }
