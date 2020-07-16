@@ -4,8 +4,17 @@ const CopyPlugin = require('copy-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const webpack = require('webpack')
 
+function resolve(dir) {
+	return path.join(__dirname, dir)
+}
+
 module.exports = {
 	configureWebpack: {
+		resolve: {
+			alias: {
+				'@request': resolve('./common/utils/request')
+			}
+		},
 		plugins: [
 			new CopyPlugin([{
 				from: path.join(__dirname, '/images'),

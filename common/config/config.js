@@ -1,31 +1,27 @@
-// 域名
+// 域名 + node 中转网关
+export const appId = '999'
+const gateWay = `/gateway/${appId}/ytGateway`
+
+const serverMode = 'online' // 接口环境
+
 const domains = {
-	dev: 'https://m.hsyuntai.com/medd/',
-	exp: 'https://m.hsyuntai.com/mede/',
-	prod: 'https://m.hsyuntai.com/med/',
-	test: 'https://www.gzamon.wang/api' // 仅仅用于测试请求库
-}
-
-// 业务模块
-export const bizModules = {
-	file: '',
-	user: ''
-}
-
-const config = {
-	// 开发和打包时域名
-	baseURL: {
-		dev: domains['test'],
-		prod: domains['prod']
+	online: {
+		dev: 'https://m.hsyuntai.com/medd',
+		exp: 'https://m.hsyuntai.com/mede',
+		prod: 'https://m.hsyuntai.com/med'
+	},
+	local: {
+		dev: 'http://localhost:12003/medd',
+		exp: 'http://localhost:12002/mede',
+		prod: 'http://localhost:12000/med'
 	}
-}
+};
 
-// 生成业务模块的全量地址
-export const getBaseURL = biz => {
-	const domain = process.env.NODE_ENV === 'development' ?
-		config.baseURL['dev'] :
-		config.baseURL['prod']
-	return `${domain}${bizModules[biz]}`
+// api 基地址
+export const baseURL = {
+	dev: domains[serverMode]['dev'] + gateWay,
+	prod: domains[serverMode]['prod'] + gateWay
 }
-
-export default config
+export const basePrefix = process.env.NODE_ENV === 'development' ?
+	domains[serverMode]['dev'] :
+	domains[serverMode]['prod']

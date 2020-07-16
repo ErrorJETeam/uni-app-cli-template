@@ -1,4 +1,4 @@
-export const statusMsg = {
+const statusMsg = {
 	'-1': '网络中断、超时或其他异常。',
 	10001: '登录失效，请重新登录',
 	200: '服务器成功返回请求的数据。',
@@ -16,4 +16,16 @@ export const statusMsg = {
 	502: '网关错误。',
 	503: '服务不可用，服务器暂时过载或维护。',
 	504: '网关超时。'
+}
+
+
+export function showError(result, msg) {
+	if (result) return
+
+	uni.showToast({
+		icon: 'none',
+		mask: true,
+		title: msg,
+		duration: 3000
+	});
 }

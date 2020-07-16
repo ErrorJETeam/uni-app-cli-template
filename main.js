@@ -3,7 +3,7 @@ import App from './App'
 import router from './router'
 import store from './store'
 import api from './apis'
-import utils from '@/common/js/utils.js';
+import utils from '@/common/utils/util.js';
 
 // uView 库
 import uView from "uview-ui";
@@ -14,7 +14,7 @@ import YtIcon from "@/components/yt-icon/yt-icon.vue"
 Vue.component('yt-icon', YtIcon)
 
 // filters
-import * as filters from '@/common/js/filters' 
+import * as filters from '@/common/utils/filters' 
 Object.keys(filters).forEach(item => Vue.filter(item, filters[item])) 
 
 // moment

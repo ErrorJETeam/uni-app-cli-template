@@ -1,9 +1,7 @@
-import http from '@/utils/request/index.js'
-import {bizModules, xjModules, getBaseURL} from '@/common/config/config.js'
-import utils from '@/common/js/utils.js'
+import http from '@/common/utils/request/index.js'
+import utils from '@/common/utils/util.js'
 import store from '@/store/index.js'
 
-const {file} = bizModules
 
 // 文件上传：获取的是 文件 id
 export function fileUpload_xj(File, path, name) {
