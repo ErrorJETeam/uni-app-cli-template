@@ -1,4 +1,4 @@
-import http from '@/common/utils/request/index.js'
+import http from '@request/index.js'
 import utils from '@/common/utils/util.js'
 import store from '@/store/index.js'
 

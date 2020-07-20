@@ -81,7 +81,7 @@
                 "enable" : true
             }
         },
-        "template" : "h5.html",
+        "template" : "",
         "router" : {
             "base" : "/yt-miniprogram/",
             "mode" : "history"
