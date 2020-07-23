@@ -13,8 +13,9 @@ import store from '@/store'
 
 const http = new Request()
 
-const cacheQueue = [] // 二次重发缓存队列
-let _loaded = false // loading 锁
+const debug = false // 微信请求信息日志
+const cancel = false // 取消重复请求
+const cacheQueue = [] // 二次重发缓存队列, JWT 模式
 
 // 设置全局配置
 http.setConfig((options) => {
@@ -34,13 +35,12 @@ http.setConfig((options) => {
 		toast: true, // 请求异常时开启 toast
 		apiName: true // 默认都需要 api_name
 	}
+	options.timeout = 15000 // 超时
+	options.validateStatus = (statusCode) => { // 验证器
+		return String(statusCode).startsWith('2')
+	}
 	return options
 })
-
-// 验证器
-http.validateStatus = (statusCode) => {
-	return String(statusCode).startsWith('2')
-}
 
 // 请求拦截器
 http.interceptors.request.use((options, cancel) => {
@@ -59,10 +59,23 @@ http.interceptors.request.use((options, cancel) => {
 		options.url = '/'
 	}
 
+	debug && console.log(`接口请求信息>>>`, options);
+
+	if (cancel) {
+		// 对该请求做取消检查。要特别注意上面对 params 做了增删，所以要放在这个位置
+		const pendingRes = Pending.removePending(options)
+		if (pendingRes) {
+			Pending.addPending(options) // 增加该请求 + 取消方法
+		} else {
+			return Promise.reject(options)
+		}
+	}
+
 	return options
 }, err => {
 	loading.resetLoading()
-	showError(false, '接口请求异常')
+	custom.toast && showError(false, '接口请求异常')
+	debug && console.error(`接口请求异常>>>`, err);
 	return Promise.reject(err)
 })
 
@@ -70,15 +83,21 @@ http.interceptors.request.use((options, cancel) => {
 http.interceptors.response.use((res) => { // 响应数据
 	loading.closeLoading()
 	const {
-		data
+		config: {
+			custom
+		}
 	} = res
-
-	showError(data.result, data.msg)
+	cancel && Pending.removePending(res.config) // 删掉请求记录
+	
+	loading.closeLoading()
+	custom.toast && showError(data.result, data.msg)
+	debug && console.log(`接口响应信息>>>`, res);
 
 	return res.data
 }, async (err) => { // 响应错误
 	loading.resetLoading()
-	showError(false, '接口响应异常')
+	custom.toast && showError(false, '接口响应异常')
+	debug && console.error(`接口响应异常>>>`, err);
 
 	return Promise.reject(err)
 })
