@@ -43,5 +43,8 @@ export const removePending = config => {
 // 取消所有的请求，并清空队列
 // 用在路由钩子中，也就是页面跳转前
 export const clearPending = _ => {
+	for(const [key, cancel] of pending) {
+		cancel(key)
+	}
 	pending.clear()
 }
