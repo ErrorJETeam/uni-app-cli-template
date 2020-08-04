@@ -5,4 +5,10 @@ files.keys().forEach((key, index) => {
 	apis[apiName] = files(key)
 })
 
-export default apis
+const install = Vue => {
+	Vue.prototype.$apis = apis // API 全局使用
+}
+
+export default {
+	install
+}

@@ -33,8 +33,8 @@ export default {
 		this.dataLen = res1.length
 		console.log('请求接口1', res1)
 
-		// 全局 $api使用
-		const res2 = mockLongList || (await this.$api.test.apiGetRelatedVideo())
+		// 全局 $apis使用
+		const res2 = mockLongList || (await this.$apis.test.apiGetRelatedVideo())
 		console.log('请求接口2', res2)
 	},
 	async created() {

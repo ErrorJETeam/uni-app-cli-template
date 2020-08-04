@@ -1,8 +1,8 @@
+// 生成随机数
 /**
- * @description 生成随机数
  * @param randomFlag ( 指定位数 false | 范围位数 true )
  */
-export const randomWord = (randomFlag, min, max) => {
+export const _validImgType = (randomFlag, min, max) => {
 	let str = "",
 		range = min,
 		arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
@@ -19,4 +19,11 @@ export const randomWord = (randomFlag, min, max) => {
 		str += arr[pos];
 	}
 	return str;
+}
+
+// 生成唯一的随机数
+export function createUniqueString() {
+	const timestamp = +new Date() + ''
+	const randomNum = parseInt((1 + Math.random()) * 65536) + ''
+	return (+(randomNum + timestamp)).toString(32)
 }
