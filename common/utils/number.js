@@ -20,3 +20,10 @@ export const _validImgType = (randomFlag, min, max) => {
 	}
 	return str;
 }
+
+// 生成唯一的随机数
+export function createUniqueString() {
+	const timestamp = +new Date() + ''
+	const randomNum = parseInt((1 + Math.random()) * 65536) + ''
+	return (+(randomNum + timestamp)).toString(32)
+}
