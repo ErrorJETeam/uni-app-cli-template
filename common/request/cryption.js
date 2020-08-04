@@ -6,7 +6,7 @@ import {
 	saltCode,
 	IM
 } from '@/common/config/salt.js'
-import utils from '@/common/utils/util.js'
+import utils from '@utils'
 
 /* #ifdef MP-WEIXIN */
 const UTF8 = Crypto.enc.Utf8
@@ -18,7 +18,7 @@ const atob = (bs64) => Crypto.enc.Base64.parse(bs64).toString(UTF8)
 export function addSign() {
 	const queryParams = {
 		...config.key,
-		random: utils.randomWord(true, 5, 11),
+		random: utils['number'].randomWord(true, 5, 11),
 		timestamp: (new Date()).valueOf()
 	}
 

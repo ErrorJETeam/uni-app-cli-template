@@ -66,7 +66,8 @@ export function formatDate(oldDate, fmt = 'yyyy-MM-dd hh:mm:ss') { // 时间格�
 	return fmt
 }
 
-export function timeFormat(type, day) { // 返回时间戳
+// 返回时间戳
+export function timeFormat(type, day) { 
 	if (type === 'end') { // 仅返回今天 23:59:59
 		return new Date(new Date().toLocaleDateString()).getTime() + 24 * 60 * 60 * 1000 - 1
 	} else if (type === 'start') { // 表示几天前的凌晨0点
@@ -74,7 +75,8 @@ export function timeFormat(type, day) { // 返回时间戳
 	}
 }
 
-export function formatDuring(mss) { // 将毫秒转换为时分秒
+// 将毫秒转换为时分秒
+export function formatDuring(mss) { 
     var day = parseInt(mss / (1000 * 60 * 60 * 24));
     var hour = parseInt((mss % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minute = parseInt((mss % (1000 * 60 * 60)) / (1000 * 60));

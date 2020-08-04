@@ -14,7 +14,9 @@ module.exports = {
 	configureWebpack: {
 		resolve: {
 			alias: {
-				'@request': resolve('./common/request')
+				'@request': resolve('./common/request'),
+				'@utils': resolve('./common/utils'),
+				'@filters': resolve('./common/filters')
 			}
 		},
 		plugins: [

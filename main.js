@@ -3,7 +3,7 @@ import App from './App'
 import router from './router'
 import store from './store'
 import api from './apis'
-import utils from '@/common/utils/util.js';
+import utils from '@utils';
 
 // uView 库
 import uView from "uview-ui";
@@ -14,8 +14,11 @@ import KtIcon from "@/components/kt-icon/kt-icon.vue"
 Vue.component('kt-icon', KtIcon)
 
 // filters
-import * as filters from '@/common/utils/filters' 
+import * as filters from '@filters' 
 Object.keys(filters).forEach(item => Vue.filter(item, filters[item])) 
+
+Vue.prototype.$utils = utils // 全局 util
+Vue.prototype.$api = api // API 全局使用
 
 // moment
 import moment from 'moment'
@@ -34,9 +37,6 @@ Vue.component('mescroll-uni', MescrollUni)
 /* #ifndef MP-WEIXIN */
 import '@/vendor/vconsole.js'
 /* #endif */
-
-Vue.prototype.$utils = utils // 全局 util
-Vue.prototype.$api = api // API 全局使用
 
 // 图片加持(原型对象测试)
 Vue.prototype.$imgSuffix = '?imageView&thumbnail=369x0&quality=75&tostatic=0';

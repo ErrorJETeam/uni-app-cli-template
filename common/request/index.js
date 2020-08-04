@@ -10,7 +10,7 @@ import {
 } from '@request/loading.js';
 import {
 	getStorageSync
-} from '@/common/utils/util.js'
+} from '@utils/storage'
 import {
 	addSign,
 	addAppToken,

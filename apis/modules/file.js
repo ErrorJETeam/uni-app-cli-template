@@ -1,8 +1,8 @@
 import http from '@request/index.js'
 import {bizModules, xjModules, getBaseURL} from '@/common/config/config.js'
-import utils from '@/common/utils/util.js'
+import utils from '@utils'
 import store from '@/store/index.js'
-import { addSign } from '@/common/utils/request/cryption.js'
+import { addSign } from '@/common/request/cryption.js'
 
 const {file} = bizModules
 
@@ -56,5 +56,5 @@ export function fileDownload(md5) {
 
 // 文件加载：用于 src 自动解析路径
 export function imgByMd5(md5) {
-	return `${getBaseURL('file')}/file/${md5}?${utils.obj2str(addSign())}`
+	return `${getBaseURL('file')}/file/${md5}?${utils['string'].obj2str(addSign())}`
 }
