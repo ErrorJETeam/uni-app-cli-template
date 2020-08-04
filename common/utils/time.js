@@ -1,6 +1,6 @@
 import moment from 'moment'
 
-// 返回某天日期
+// 返回距离今天 n 天的日期
 export function datePick(param, format = 'YYYY-MM-DD') {
 	if (typeof param === 'number') param = String(param)
 	switch (param) {
@@ -15,4 +15,14 @@ export function datePick(param, format = 'YYYY-MM-DD') {
 		default:
 			return moment().subtract('days', param-1).format(format)
 	}
+}
+
+// 计算年龄: 传入生日
+export const filterAge = birthday => {
+	const text = moment(birthday, 'YYYY-MM-DD').fromNow()
+	let age = parseInt(text, 10)
+	if (isNaN(age)) {
+		age = '未知'
+	}
+	return age;
 }

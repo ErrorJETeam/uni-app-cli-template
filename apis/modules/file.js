@@ -1,5 +1,5 @@
 import http from '@request/index.js'
-import utils from '@/common/utils/util.js'
+import utils from '@/common/utils'
 import store from '@/store/index.js'
 
 

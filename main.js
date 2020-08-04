@@ -3,7 +3,7 @@ import App from './App'
 import router from './router'
 import store from './store'
 import api from './apis'
-import utils from '@/common/utils/util.js';
+import utils from '@utils';
 
 // uView 库
 import uView from "uview-ui";
@@ -14,8 +14,11 @@ import YtIcon from "@/components/yt-icon/yt-icon.vue"
 Vue.component('yt-icon', YtIcon)
 
 // filters
-import * as filters from '@/common/utils/filters' 
+import * as filters from '@filters'
 Object.keys(filters).forEach(item => Vue.filter(item, filters[item])) 
+
+Vue.prototype.$utils = utils // 全局 util
+Vue.prototype.$api = api // API 全局使用
 
 // moment
 import moment from 'moment'
@@ -29,9 +32,6 @@ import MescrollBody from "@/vendor/mescroll-uni/mescroll-body.vue"
 import MescrollUni from "@/vendor/mescroll-uni/mescroll-uni.vue"
 Vue.component('mescroll-body', MescrollBody)
 Vue.component('mescroll-uni', MescrollUni)
-
-Vue.prototype.$utils = utils // 全局 util
-Vue.prototype.$api = api // API 全局使用
 
 // 图片加持(原型对象测试)
 import staticImage, {staticServerUrl} from '@/common/static/images.js'
