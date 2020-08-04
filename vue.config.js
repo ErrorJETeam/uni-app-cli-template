@@ -14,8 +14,7 @@ module.exports = {
 			extensions: ['.js', '.vue', '.json'],
 			alias: {
 				'@request': resolve('./common/request'),
-				'@utils': resolve('./common/utils'),
-				'@filters': resolve('./common/filters')
+				'@utils': resolve('./common/utils')
 			}
 		},
 		plugins: [

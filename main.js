@@ -2,8 +2,6 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
-import api from './apis'
-import utils from '@utils';
 
 // uView 库
 import uView from "uview-ui";
@@ -13,12 +11,12 @@ Vue.use(uView);
 import YtIcon from "@/components/yt-icon/yt-icon.vue"
 Vue.component('yt-icon', YtIcon)
 
-// filters
-import * as filters from '@filters'
-Object.keys(filters).forEach(item => Vue.filter(item, filters[item])) 
+// 全局 util, 
+import utils from '@utils';
+Vue.use(utils)
 
-Vue.prototype.$utils = utils // 全局 util
-Vue.prototype.$api = api // API 全局使用
+import apis from './apis'
+Vue.use(apis)
 
 // moment
 import moment from 'moment'
