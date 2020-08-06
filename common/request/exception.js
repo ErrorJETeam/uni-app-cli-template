@@ -21,9 +21,9 @@ const statusMsg = {
 
 // 错误 toast
 export function showError(result, msg) {
-	if (result) return
+	if (result || !msg) return
 	
-	if(msg.includes('404')) msg = statusMsg[404]
+	if(msg && msg.includes('404')) msg = statusMsg[404]
 
 	uni.showToast({
 		icon: 'none',
