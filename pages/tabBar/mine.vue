@@ -43,8 +43,7 @@ export default {
 		console.log('vuex ceshi ', await this[types.SET_LOGIN]())
 	},
 	methods: {
-		...userActions([types.SET_LOGIN]),
-		...mapMutations('SET_LEAVE_TOME')
+		...userActions([types.SET_LOGIN])
 	}
 }
 </script>

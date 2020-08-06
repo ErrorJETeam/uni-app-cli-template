@@ -39,6 +39,7 @@ const actions = {
 		}
 		commit(types.SET_LOGIN, temp)
 		uni.setStorageSync('userInfo', JSON.stringify(state.userInfo)) // 缓存数据
+		return 'vuex 测试数据返回'
 	},
 
 	// 退出登录
