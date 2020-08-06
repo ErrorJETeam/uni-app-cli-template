@@ -34,6 +34,7 @@ http.setConfig((options) => {
 	}
 	// 配置开关
 	options.custom = {
+		withFullResponse: false, // 是否返回全量的响应内容
 		auth: true, // token 失效重置 TODO 完善
 		cryption: false, // 数据加解密
 		addSign: false, // 验签
@@ -105,7 +106,7 @@ http.interceptors.response.use((res) => { // 响应数据
 		data = res.data.data
 	}
 
-	return data
+	return return custom.withFullResponse ? res : data
 }, async (res) => { // 响应错误
 	loading.resetLoading()
 	const options = res.config
