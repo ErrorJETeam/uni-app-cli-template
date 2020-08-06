@@ -53,8 +53,11 @@
     "@dcloudio/uni-quickapp-webview": "^2.0.0-28320200727001",
     "@dcloudio/uni-stat": "^2.0.0-28320200727001",
     "core-js": "^3.6.5",
+    "crypto-js": "^4.0.0",
     "flyio": "^0.6.2",
     "regenerator-runtime": "^0.12.1",
+    "uni-simple-router": "^1.5.5",
+    "uview-ui": "^1.6.0",
     "vue": "^2.6.11",
     "vuex": "^3.2.0"
   },
@@ -72,11 +75,15 @@
     "@vue/cli-plugin-babel": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
     "babel-plugin-import": "^1.11.0",
+    "compression-webpack-plugin": "^4.0.0",
     "cross-env": "^7.0.2",
     "jest": "^25.4.0",
     "mini-types": "*",
     "miniprogram-api-typings": "*",
     "postcss-comment": "^2.0.0",
+    "sass": "^1.26.10",
+    "sass-loader": "^9.0.3",
+    "vconsole": "^3.3.4",
     "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [
