@@ -18,10 +18,6 @@
 				测试图标：
 				<text class="kt-icon kt-shouye"></text>
 			</view>
-			<view>
-				kt-icon 图标组件使用：
-				<kt-icon name="kt-shouye" custom-prefix="kt-icon" size="30" color="#888888"></kt-icon>
-			</view>
 		</block>
 		<!-- 动画库 -->
 		<view class="hr"></view>
