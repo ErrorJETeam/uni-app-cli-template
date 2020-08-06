@@ -30,6 +30,7 @@ http.setConfig((options) => {
 		Cookie: uni.getStorageSync('cookie')
 	}
 	options.custom = { // 定制化配置
+		withFullResponse: false, // TODO 是否返回全部的响应内容
 		loading: true, // 请求时开启 loading
 		toast: true, // 请求异常时开启 toast
 		apiName: true // 默认都需要 api_name
@@ -94,7 +95,7 @@ http.interceptors.response.use((res) => { // 响应数据
 	custom.loading && loading.closeLoading()
 	custom.toast && showError(data.result, data.msg)
 	debug && console.log(`接口响应信息>>>`, res);
-	return res.data
+	return custom.withFullResponse ? res : res.data
 }, async (err) => { // 响应错误
 	const {config: {custom}} = err
 	custom.loading && loading.resetLoading()
