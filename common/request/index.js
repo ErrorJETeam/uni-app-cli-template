@@ -27,7 +27,9 @@ http.setConfig((options) => {
 	options.header = { // 请求头
 		...options.header,
 		SRType: "wechat",
+		/* #ifndef H5 */
 		Cookie: uni.getStorageSync('cookie')
+		/* #endif */
 	}
 	options.custom = { // 定制化配置
 		withFullResponse: false, // TODO 是否返回全部的响应内容
