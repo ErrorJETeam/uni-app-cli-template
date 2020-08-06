@@ -11,6 +11,7 @@ function resolve(dir) {
 }
 
 module.exports = {
+  transpileDependencies:['uni-simple-router'],
   configureWebpack: {
     resolve: {
       extensions: ['.js', '.vue', '.json'],
