@@ -106,7 +106,7 @@ http.interceptors.response.use((res) => { // 响应数据
 		data = res.data.data
 	}
 
-	return return custom.withFullResponse ? res : data
+	return custom.withFullResponse ? res : data
 }, async (res) => { // 响应错误
 	loading.resetLoading()
 	const options = res.config
