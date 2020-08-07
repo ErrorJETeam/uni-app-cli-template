@@ -11,14 +11,6 @@
 			<view>图片测试</view>
 			<image style="width: 100rpx; height: 100rpx;" src="../../static/image/logo.png" mode=""></image>
 		</block>
-		<!-- iconfont 使用 -->
-		<view class="hr"></view>
-		<block>
-			<view>
-				测试图标：
-				<text class="kt-icon kt-shouye"></text>
-			</view>
-		</block>
 		<!-- 动画库 -->
 		<view class="hr"></view>
 		<block><view class="animated bounce">动画库演示</view></block>
