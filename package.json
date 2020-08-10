@@ -79,7 +79,9 @@
     "cross-env": "^7.0.2",
     "eslint": "^7.6.0",
     "eslint-plugin-vue": "^6.2.2",
+    "husky": "^4.2.5",
     "jest": "^25.4.0",
+    "lint-staged": "^10.2.11",
     "mini-types": "*",
     "miniprogram-api-typings": "*",
     "postcss-comment": "^2.0.0",
@@ -93,5 +95,16 @@
   ],
   "uni-app": {
     "scripts": {}
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue}": [
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
