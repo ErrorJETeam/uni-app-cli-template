@@ -11,6 +11,7 @@ function resolve(dir) {
 
 module.exports = {
   lintOnSave: false,
+  productionSourceMap: false,
   transpileDependencies: ['uni-simple-router'],
   configureWebpack: {
     resolve: {
