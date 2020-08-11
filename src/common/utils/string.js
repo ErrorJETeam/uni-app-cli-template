@@ -32,3 +32,15 @@ export function byteLength(str) {
   }
   return s
 }
+
+// 指定位数，不足的前置补 0
+// addZero(3) 答案是 03
+export function addZero(num, len = 2) {
+  return (`${num}`).padStart(len, '0')
+}
+
+// 字符串去重
+// 利用 set 数据结构
+export function uniqueStr(str) {
+  return [...new Set(str)].join('')
+}

@@ -27,3 +27,12 @@ export function createUniqueString() {
   const randomNum = parseInt((1 + Math.random()) * 65536) + ''
   return (+(randomNum + timestamp)).toString(32)
 }
+
+// 小数位精确
+// 传入数据和位数
+// e 是科学技术法 *10 的意思
+// 先将数转为整数(根据位数来*10)，四舍五入后再缩回带小数位的浮点数
+// 还可以直接用来计算 toFixed(x) + toFixed(y)
+export function toFixed(n, decimals = 0) {
+  return Number(`${Math.round(`${n}e${decimals}`)}e-${decimals}`)
+}
