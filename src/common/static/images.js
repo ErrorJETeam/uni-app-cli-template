@@ -2,5 +2,5 @@
 export const staticServerUrl = ``
 
 export default {
-	add: `${staticServerUrl}/add.png`
+  add: `${staticServerUrl}/add.png`
 }
