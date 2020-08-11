@@ -11,7 +11,7 @@
     <view class="hr" />
     <block>
       <view>图片测试</view>
-      <image style="width: 100rpx; height: 100rpx;" src="../../static/image/logo.png" mode />
+      <image style="width: 100rpx; height: 100rpx;" src="../../static/image/logo.png" />
     </block>
     <!-- 动画库 -->
     <view class="hr" />

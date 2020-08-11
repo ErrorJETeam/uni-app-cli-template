@@ -10,6 +10,7 @@ function resolve(dir) {
 }
 
 module.exports = {
+  lintOnSave: false,
   transpileDependencies: ['uni-simple-router'],
   configureWebpack: {
     resolve: {

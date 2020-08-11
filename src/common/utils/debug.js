@@ -4,7 +4,10 @@ export function $log() {
 }
 
 // 显示所有 DOM 边框
-// eslint-disable-next-line no-undef
-[].forEach.call($$('*'), dom => {
-  dom.style.outline = '1px solid #' + (~~(Math.random() * (1 << 24))).toString(16)
-})
+export function debugShowBorder() {
+  // eslint-disable-next-line no-undef
+  [].forEach.call($$('*'), dom => {
+    dom.style.outline = '1px solid #' + (~~(Math.random() * (1 << 24))).toString(16)
+  })
+}
+
