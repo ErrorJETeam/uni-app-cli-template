@@ -34,8 +34,8 @@ Vue.component('mescroll-uni', MescrollUni)
 
 // 图片加持(原型对象测试)
 // eslint-disable-next-line no-unused-vars
-import staticImage, { staticServerUrl } from '@/common/static/images.js'
-Vue.prototype.$staticImage = staticImage // JS 用
+import cdnImages from '@/common/static/images.js'
+Vue.prototype.$cdnImages = cdnImages // JS 用
 
 // 图片缺省占位图
 Vue.prototype.$errorImg = require('static/image/default.png')
