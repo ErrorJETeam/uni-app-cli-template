@@ -16,19 +16,20 @@ files.keys().forEach(key => {
 
 // 初始化
 const router = new Router({
-	h5: {
-		loading: true // 顶部加载
-	},
-	debugger: true, // 报错调试
-	encodeURI: false, // URL 传参编码
-	// paramsToQuery: true,
-	routes //路由表
-});
+  h5: {
+    loading: true // 顶部加载
+  },
+  debugger: true, // 报错调试
+  encodeURI: false, // URL 传参编码
+  // paramsToQuery: true,
+  routes // 路由表
+})
 
 // 全局路由前置守卫
 router.beforeEach((to, from, next) => {
-	const whiteList = ['/pages/login/login']
-	next()
+  // eslint-disable-next-line no-unused-vars
+  const whiteList = ['/pages/login/login']
+  next()
 })
 // 全局路由后置守卫
 router.afterEach((to, from) => {})
