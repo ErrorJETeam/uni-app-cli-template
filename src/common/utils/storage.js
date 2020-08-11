@@ -1,6 +1,6 @@
 import {
   judgeType
-} from './base'
+} from './judege'
 
 // 同步设置缓存
 export const setStorageSync = (k, v) => uni.setStorageSync(k, judgeType(v) === 'object' ? JSON.stringify(v) : v)
