@@ -4,7 +4,6 @@ import 'moment/locale/zh-cn'
 export default {
   onLaunch: function() {
     /* #ifdef MP-WEIXIN */
-    console.log('测试', 123)
     const updateManager = uni.getUpdateManager()
 
     updateManager.onCheckForUpdate(function(res) {
