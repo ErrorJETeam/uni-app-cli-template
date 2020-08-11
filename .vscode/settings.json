@@ -1,11 +1,17 @@
 {
+  "prettier.tabWidth": 2,
+  "prettier.useTabs": false,
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+
+  "files.autoSave": "off",
+
   "eslint.options": {
     "extensions": [".js", ".jsx", ".vue"],
     "rules": {
       "space-before-function-paren": 0
     }
   },
-  "files.autoSave": "off",
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
