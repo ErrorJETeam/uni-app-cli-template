@@ -1,5 +1,42 @@
 {
+  // Editor
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "files.autoSave": "off",
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.quickSuggestions": {
+    // 代码补全建议
+    "other": true,
+    "comments": true,
+    "strings": true
+  },
+
+  // 默认格式化工具
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // Prettier
   "prettier.printWidth": 120,
   "prettier.tabWidth": 2,
   "prettier.useTabs": false,
@@ -7,16 +44,18 @@
   "prettier.trailingComma": "none",
   "prettier.singleQuote": true,
 
-  "files.autoSave": "off",
-
+  // ESLint
   "eslint.options": {
     "extensions": [".js", ".jsx", ".vue"],
     "rules": {
       "space-before-function-paren": 0
     }
   },
-  "editor.formatOnSave": false,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  }
+
+  // StyleLint
+  "stylelint.enable": true,
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "stylelint.autoFixOnSave": true
 }

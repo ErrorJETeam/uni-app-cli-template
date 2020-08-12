@@ -1,6 +1,6 @@
 <template>
   <view class="kt-container home">
-    <view style="background-color: #FFFFFF;height: 200rpx;width: 100%;padding-top: 100rpx;">
+    <view style="background-color: #ffffff; height: 200rpx; width: 100%; padding-top: 100rpx;">
       <h3>首页</h3>
     </view>
     <view class="hr" />
@@ -20,13 +20,7 @@
     </block>
     <!-- moment 测试 -->
     <view class="hr" />
-    <view>
-      Moment 使用（-1周）:{{
-        $moment(new Date())
-          .subtract(1, 'w')
-          .format('YYYY-MM-DD')
-      }}
-    </view>
+    <view> Moment 使用（-1周）:{{ $moment(new Date()).subtract(1, 'w').format('YYYY-MM-DD') }} </view>
 
     <!-- uView -->
     <view class="hr" />
