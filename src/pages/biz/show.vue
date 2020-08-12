@@ -17,9 +17,10 @@ export default {
 <style>
 /* 引入 charts 自定义样式 */
 @import '../../common/css/charts.css';
+
 page {
-  background: #f2f2f2;
-  overflow-x: hidden;
   width: 750rpx;
+  overflow-x: hidden;
+  background: #f2f2f2;
 }
 </style>
