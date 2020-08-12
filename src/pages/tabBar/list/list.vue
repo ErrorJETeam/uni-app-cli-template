@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { apiRequestTest } from '@/apis/modules/core.js'
+import { apiRequestTest, rap2API } from '@/apis/modules/core.js'
 export default {
   data() {
     return {
@@ -23,6 +23,9 @@ export default {
     this.apiData.data = data
     this.apiData.length = data.length
     console.log('列表页面加载', data)
+
+    const rap2Res = await rap2API()
+    console.log('rap2接口测试', rap2Res)
   },
   methods: {}
 }

@@ -21,6 +21,23 @@ export const NumFormat = (value) => {
   }
 }
 
+/**
+ * 10000 => "10,000"
+ * @param {number} num
+ * 与上面的方法作用一样
+ */
+export function toThousandFilter(num) {
+  return (+num || 0).toString().replace(/^-?\d+/g, m => m.replace(/(?=(?!\b)(\d{3})+$)/g, ','))
+}
+
+/**
+ * 首字母大写
+ * @param {String} string
+ */
+export function uppercaseFirst(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}
+
 // 计算字符串的字节数
 export function byteLength(str) {
   let s = str.length
