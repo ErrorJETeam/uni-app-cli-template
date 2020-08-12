@@ -33,7 +33,6 @@ Vue.component('mescroll-body', MescrollBody)
 Vue.component('mescroll-uni', MescrollUni)
 
 // 图片加持(原型对象测试)
-// eslint-disable-next-line no-unused-vars
 import cdnImages from '@/common/static/images.js'
 Vue.prototype.$cdnImages = cdnImages // JS 用
 
