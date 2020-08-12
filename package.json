@@ -40,7 +40,8 @@
     "test:mp-weixin": "cross-env UNI_PLATFORM=mp-weixin jest -i",
     "lint": "eslint --ext .js,.jsx src",
     "lint:write": "eslint --debug src/ --fix",
-    "lint-fix": "eslint --fix --ext .js,.jsx src"
+    "lint-fix": "eslint --fix --ext .js,.jsx src",
+    "lint:style": "stylelint **/*.{vue,css,scss} --fix"
   },
   "dependencies": {
     "@dcloudio/uni-app-plus": "^2.0.0-28320200727001",

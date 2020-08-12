@@ -1,6 +1,6 @@
 <template>
   <view class="kt-container home">
-    <view style="background-color: #ffffff; height: 200rpx; width: 100%; padding-top: 100rpx;">
+    <view style=" width: 100%; height: 200rpx; padding-top: 100rpx; background-color: #fff;">
       <h3>首页</h3>
     </view>
     <view class="hr" />
@@ -63,8 +63,9 @@ export default {
 .home {
   padding: 0 30rpx;
 }
+
 .hr {
   margin: 15rpx 0;
-  border: 0.5rpx solid #dddddd;
+  border: 0.5rpx solid #ddd;
 }
 </style>

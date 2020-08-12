@@ -17,7 +17,7 @@ export default {
   },
   computed: {
     ...mapState({
-      userName: (state) => state.userName
+      userName: state => state.userName
     }),
     userName2() {
       return this.$store.getters.userName
@@ -35,5 +35,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss"></style>
