@@ -19,7 +19,7 @@ export default {
 @import '../../common/css/charts.css';
 page {
   background: #f2f2f2;
-  width: 750rpx;
   overflow-x: hidden;
+  width: 750rpx;
 }
 </style>
