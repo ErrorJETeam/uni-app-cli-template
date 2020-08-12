@@ -41,7 +41,7 @@ export function toggleClass(element, className) {
   }
   element.className = classString
 }
-
+// #ifdef H5
 /** ******************************** DOM 查询 ************************************ */
 // DOM 查找
 // eslint-disable-next-line no-unused-vars
@@ -77,3 +77,4 @@ export function find(element, selector) {
 export function appendHtml(element, html) {
   element.insertAdjacentHTML('beforeend', html)
 }
+// #endif
