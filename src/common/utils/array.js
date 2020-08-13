@@ -8,6 +8,11 @@ export function createNumberArr(n) {
   return arr
 }
 
+// 创建 n 个元素数组，且值都为 i
+export function createFillArr(n, i) {
+  return Array(n).fill(i)
+}
+
 /** ******************************** 数组去重 ************************************ */
 // 数组去重：纯 array API 实现
 export function uniqueArray(arr) {
