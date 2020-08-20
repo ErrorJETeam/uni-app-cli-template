@@ -1,5 +1,5 @@
 // 金额整数部分每3位就用逗号隔开
-export const NumFormat = (value) => {
+export const NumFormat = value => {
   if (!value) return '0.00'
 
   var intPart = Number(value) - (Number(value) % 1)
@@ -30,12 +30,18 @@ export function toThousandFilter(num) {
   return (+num || 0).toString().replace(/^-?\d+/g, m => m.replace(/(?=(?!\b)(\d{3})+$)/g, ','))
 }
 
-/**
- * 首字母大写
- * @param {String} string
- */
-export function uppercaseFirst(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1)
+// 首字母大写
+export function capitalize([first, ...rest]) {
+  return first.toUpperCase() + rest.join('')
+}
+// 首字母小写
+export function decapitalize([first, ...rest]) {
+  return first.toLowerCase() + rest.join('')
+}
+// 所有单词首字母大写
+// capitalizeEveryWord('hello world!'); // 'Hello World!'
+export function capitalizeEveryWord(str) {
+  return str.replace(/\b[a-z]/g, char => char.toUpperCase())
 }
 
 // 计算字符串的字节数
@@ -45,15 +51,20 @@ export function byteLength(str) {
     const code = str.charCodeAt(i)
     if (code > 0x7f && code <= 0x7ff) s++
     else if (code > 0x7ff && code <= 0xffff) s += 2
-    if (code >= 0xDC00 && code <= 0xDFFF) i--
+    if (code >= 0xdc00 && code <= 0xdfff) i--
   }
   return s
+}
+
+// 计算字符串的字节数2
+export function byteSize(str) {
+  return new Blob([str]).size
 }
 
 // 指定位数，不足的前置补 0
 // addZero(3) 答案是 03
 export function addZero(num, len = 2) {
-  return (`${num}`).padStart(len, '0')
+  return `${num}`.padStart(len, '0')
 }
 
 // 字符串去重

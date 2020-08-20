@@ -12,6 +12,19 @@ export const obj2Param = function(obj) {
   return str
 }
 
+// 对象转 a=b&c=d, 且排序
+export function objKeySort(obj) {
+  // 先用 Object 内置类的 keys 方法获取要排序对象的属性名数组，再利用 Array 的 sort 方法进行排序
+  var newkey = Object.keys(obj).sort()
+  console.log('newkey=' + newkey)
+  var newObj = '' // 创建一个新的对象，用于存放排好序的键值对
+  for (var i = 0; i < newkey.length; i++) {
+    // 遍历 newkey 数组
+    newObj += [newkey[i]] + '=' + obj[newkey[i]] + '&'
+  }
+  return newObj.substring(0, newObj.length - 1)
+}
+
 // url params => obj
 export function param2Obj(url) {
   const search = decodeURIComponent(url.split('?')[1]).replace(/\+/g, ' ')
