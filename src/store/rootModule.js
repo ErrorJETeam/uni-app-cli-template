@@ -2,7 +2,9 @@ import getters from './getters.js'
 
 // 根模块
 export default {
-  state: {},
+  state: {
+    bannerList: []
+  },
   mutations: {},
   actions: {},
   modules: {},

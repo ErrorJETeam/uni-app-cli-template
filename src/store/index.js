@@ -13,9 +13,6 @@ files.keys().forEach((key, index) => {
   const modules = rootModule.modules || {}
   modules[moduleName] = store
   modules[moduleName].namespaced = true
-  rootModule.modules = modules
 })
 
-const store = new Vuex.Store(rootModule)
-
-export default store
+export default new Vuex.Store(rootModule)
