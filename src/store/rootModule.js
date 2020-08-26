@@ -16,8 +16,12 @@ export default {
   // 调用接口，提交 mutations
   actions: {
     async [types.SET_LOGIN]({ commit }) {
-      const logInfo = { name: 'ErrorJE' } // 用 接口获取
-      commit(types.SET_LOGIN, logInfo)
+      try {
+        const logInfo = { name: 'ErrorJE' } // 用 接口获取
+        commit(types.SET_LOGIN, logInfo)
+      } catch (error) {
+        return Promise.reject(error)
+      }
     }
   },
   modules: {},
