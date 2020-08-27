@@ -1,5 +1,5 @@
 // 判断是否为 promise
-export const _isPromise = (obj) => {
+export const _isPromise = obj => {
   return obj && (typeof obj === 'object' || typeof obj === 'function') && typeof obj.then === 'function'
 }
 
@@ -7,8 +7,10 @@ export const _isPromise = (obj) => {
 // 把类型结果都转为小写的
 export const judgeType = data => {
   const toString = Object.prototype.toString
-  const dataType =
-		toString.call(data).replace(/\[object\s(.+)\]/, '$1').toLowerCase()
+  const dataType = toString
+    .call(data)
+    .replace(/\[object\s(.+)\]/, '$1')
+    .toLowerCase()
   return dataType
 }
 // 传入数据和类型（小写），得到改数据类型是否与传入的类型判断一致
@@ -26,11 +28,11 @@ export const is = (type, val) => ![, null].includes(val) && val.constructor === 
 export function isStatic(value) {
   return (
     typeof value === 'string' ||
-		typeof value === 'number' ||
-		typeof value === 'boolean' ||
-		typeof value === 'undefined' ||
-		typeof value === 'symbol' ||
-		value === null
+    typeof value === 'number' ||
+    typeof value === 'boolean' ||
+    typeof value === 'undefined' ||
+    typeof value === 'symbol' ||
+    value === null
   )
 }
 
@@ -41,7 +43,18 @@ export function isObject(value) {
   return value != null && (type === 'object' || type === 'function')
 }
 
-// 判断书否为非数字值(现在已经有 isNan 这个原生函数了)
+// 判断是否为非数字值(现在已经有 isNan 这个原生函数了)
 export function _isNaN(v) {
   return !(typeof v === 'string' || typeof v === 'number') || isNaN(v)
+}
+
+// 深度判断全等
+export function equals(a, b) {
+  if (a === b) return true
+  if (a instanceof Date && b instanceof Date) return a.getTime() === b.getTime()
+  if (!a || !b || (typeof a !== 'object' && typeof b !== 'object')) return a === b
+  if (a.prototype !== b.prototype) return false
+  const keys = Object.keys(a)
+  if (keys.length !== Object.keys(b).length) return false
+  return keys.every(k => equals(a[k], b[k]))
 }

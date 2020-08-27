@@ -1,3 +1,4 @@
+/** ******************************** 与 URL 相关处理 ************************************ */
 // 对象转 a=b&c=d
 export const obj2Param = function(obj) {
   let str = ''
@@ -61,6 +62,7 @@ export function getQueryObject(url) {
   return obj
 }
 
+/** ******************************** 深浅拷贝 ************************************ */
 // 简单版本深拷贝: 建议使用 lodash's _.cloneDeep
 export function deepClone(source) {
   // 必须是引用类型
@@ -76,4 +78,23 @@ export function deepClone(source) {
     }
   })
   return targetObj
+}
+
+/** ******************************** 对象类型转换 ************************************ */
+// obj => map
+export function objToStrMap(obj) {
+  const strMap = new Map()
+  for (const k of Object.keys(obj)) {
+    strMap.set(k, obj[k])
+  }
+  return strMap
+}
+
+// map => obj
+export function strMapToObj(strMap) {
+  const obj = Object.create(null)
+  for (const [k, v] of strMap) {
+    obj[k] = v
+  }
+  return obj
 }
