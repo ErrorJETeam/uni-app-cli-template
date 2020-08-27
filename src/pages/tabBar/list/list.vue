@@ -24,8 +24,13 @@ export default {
     this.apiData.length = data.length
     console.log('列表页面加载', data)
 
-    const rap2Res = await rap2API()
-    console.log('rap2接口测试', rap2Res)
+    try {
+      const rap2Res = await rap2API()
+      console.log('rap2接口测试', rap2Res)
+    } catch (error) {
+      // 可以被中断的请求如果不用 trycatch 则会让整个程序停止
+      console.log(error)
+    }
   },
   methods: {}
 }

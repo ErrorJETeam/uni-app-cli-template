@@ -6,6 +6,7 @@ import * as Pending from '@request/pending.js'
 
 // eslint-disable-next-line no-unused-vars
 import store from '@/store'
+import * as types from '@/store/action-types.js'
 
 const http = new Request()
 
@@ -26,17 +27,25 @@ http.setConfig(options => {
     Cookie: uni.getStorageSync('cookie')
     /* #endif */
   }
+
+  // 定制化配置
   options.custom = {
-    // 定制化配置
-    withFullResponse: false, // TODO 是否返回全部的响应内容
+    withFullResponse: false, // 是否返回全部的响应内容
     loading: true, // 请求时开启 loading
     toast: true, // 请求异常时开启 toast
     apiName: true // 默认都需要 api_name
   }
+
   options.timeout = 15000 // 超时
+
+  // 验证器
   options.validateStatus = statusCode => {
-    // 验证器
     return String(statusCode).startsWith('2')
+  }
+
+  // 请求中断队列： 1 requestTask.abort 方法，2 router 守卫，3 vuex 队列保存 4 注意原生 tabbar 切换监听
+  options.getTask = (task, options) => {
+    store.commit(`base/${types.SET_REQUEST_TOKEN}`, task.abort)
   }
 
   return options
@@ -104,10 +113,12 @@ http.interceptors.response.use(
   async err => {
     // 响应错误
     const {
-      config: { custom }
+      config: { custom },
+      errMsg
     } = err
+
     custom.loading && loading.resetLoading()
-    custom.toast && showError(false, '接口响应异常')
+    custom.toast && showError(false, errMsg && errMsg.includes('fail abort') ? '请求接口中断' : '接口响应异常')
     debug && console.error(`接口响应异常>>>`, err)
     return Promise.reject(err)
   }

@@ -28,7 +28,7 @@ export default {
   async created() {
     // vuex - actions 方法调用
     console.log('store', this.$store.getters)
-    console.log('vuex ceshi ', await this[types.SET_LOGIN]())
+    console.log('vuex 测试', await this[types.SET_LOGIN]())
   },
   methods: {
     ...userActions([types.SET_LOGIN])

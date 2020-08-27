@@ -1,6 +1,7 @@
 // router/modules/index.js
 import Vue from 'vue'
 import Router from 'uni-simple-router'
+import hooks from './hooks'
 
 Vue.use(Router)
 
@@ -26,11 +27,11 @@ const router = new Router({
 })
 
 // 全局路由前置守卫
-router.beforeEach((to, from, next) => {
-  // eslint-disable-next-line no-unused-vars
-  const whiteList = ['/pages/login/login']
-  next()
+// 无法监听 tabbar 原生切换和页面返回。需要自己在 onShow 中执行类似逻辑
+Object.values(hooks).forEach(hook => {
+  router.beforeEach(hook.bind(router))
 })
+
 // 全局路由后置守卫
 router.afterEach((to, from) => {})
 
