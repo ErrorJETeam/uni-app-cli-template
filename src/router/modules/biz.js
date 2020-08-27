@@ -1,6 +1,9 @@
 export default [
   {
     path: '/pages/biz/show',
-    name: 'show'
+    name: 'show',
+    meta: {
+      login: true
+    }
   }
 ]
