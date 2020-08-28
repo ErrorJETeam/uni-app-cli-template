@@ -4,6 +4,18 @@ import App from './App'
 import router from './router'
 import store from './store'
 
+// 权限按钮指令实现 v-permission="'edit'"
+// <btn v-permission="'delete'"></btn>
+Vue.directive('permission', {
+  inserted(el, bindings, vnode) {
+    const exists = vnode.context.$store.state.base.btnPermission[bindings.value]
+    // 若没有该权限
+    if (!exists) {
+      el.parentNode.removeChild(el)
+    }
+  }
+})
+
 // uView 库
 import uView from 'uview-ui'
 Vue.use(uView)
