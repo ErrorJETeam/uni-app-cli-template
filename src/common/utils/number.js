@@ -173,6 +173,11 @@ export function arrOfMin(arr) {
   return arr.length ? Math.min.apply(null, arr) : undefined
 }
 
+// 获取有几位小数
+export function judgePointNumber(n) {
+  return n.toString().split('.')[1].length
+}
+
 /** ******************************** 计算 ************************************ */
 // 计算数组或多个数字总和
 // sum(1, 2, 3, 4); | sum(...[1, 2, 3, 4]);

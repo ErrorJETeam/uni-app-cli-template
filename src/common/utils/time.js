@@ -101,3 +101,8 @@ export function formatDuring(mss) {
     second
   }
 }
+
+// 判断是否为时间对象
+export function isDate(value) {
+  return Object.prototype.toString.call(value) === '[object Date]'
+}
