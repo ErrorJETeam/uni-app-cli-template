@@ -5,6 +5,8 @@
   "scripts": {
     "commit": "git add -A && git-cz",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "inspect": "jsinspect -t 30 ./src/common",
+    "codereview": "jscpd ./src/common",
     "build:app-plus": "cross-env NODE_ENV=production UNI_PLATFORM=app-plus vue-cli-service uni-build",
     "build:custom": "cross-env NODE_ENV=production uniapp-cli custom",
     "build:h5": "cross-env NODE_ENV=production UNI_PLATFORM=h5 vue-cli-service uni-build",
@@ -92,6 +94,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "husky": "^4.2.5",
     "jest": "^25.4.0",
+    "jscpd": "^3.3.23",
     "lint-staged": "^10.2.11",
     "mini-types": "^0.1.4",
     "miniprogram-api-typings": "^3.0.2",
