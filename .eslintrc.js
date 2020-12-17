@@ -104,7 +104,6 @@ module.exports = {
     'new-parens': 2,
     'no-array-constructor': 2,
     'no-caller': 2,
-    'no-console': process.env.NODE_ENV === 'production' ? 2 : 0,
     'no-class-assign': 2,
     'no-cond-assign': 2,
     'no-const-assign': 2,
@@ -230,7 +229,7 @@ module.exports = {
       }
     ],
     'space-before-blocks': [2, 'always'],
-    'space-before-function-paren': 0,
+    'space-before-function-paren': ['error', 'always'],
     'space-in-parens': [2, 'never'],
     'space-infix-ops': 2,
     'space-unary-ops': [
@@ -254,7 +253,8 @@ module.exports = {
     'yield-star-spacing': [2, 'both'],
     yoda: [2, 'never'],
     'prefer-const': 2,
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+    'no-console': process.env.NODE_ENV === 'development' ? 2 : 0,
+    'no-debugger': process.env.NODE_ENV === 'development' ? 2 : 0,
     'object-curly-spacing': [
       2,
       'always',

@@ -65,6 +65,8 @@
     "vuex": "^3.2.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "@dcloudio/types": "^2.0.4",
     "@dcloudio/uni-automator": "^2.0.0-28820200820001",
     "@dcloudio/uni-cli-shared": "^2.0.0-28820200820001",
@@ -107,7 +109,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
