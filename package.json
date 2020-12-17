@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "commit": "git add -A && git-cz",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "build:app-plus": "cross-env NODE_ENV=production UNI_PLATFORM=app-plus vue-cli-service uni-build",
     "build:custom": "cross-env NODE_ENV=production uniapp-cli custom",
     "build:h5": "cross-env NODE_ENV=production UNI_PLATFORM=h5 vue-cli-service uni-build",
@@ -82,7 +84,10 @@
     "@vue/cli-service": "~4.4.0",
     "babel-eslint": "^10.1.0",
     "babel-plugin-import": "^1.11.0",
+    "commitizen": "^4.2.2",
+    "conventional-changelog-cli": "^2.1.1",
     "cross-env": "^7.0.2",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.6.0",
     "eslint-plugin-vue": "^6.2.2",
     "husky": "^4.2.5",
@@ -106,6 +111,11 @@
   ],
   "uni-app": {
     "scripts": {}
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "husky": {
     "hooks": {
