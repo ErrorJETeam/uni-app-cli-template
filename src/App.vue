@@ -42,11 +42,14 @@ export default {
 /* 每个页面公共css */
 @import 'common/css/uni.css';
 @import 'common/css/common.scss';
+
 /* colorUi */
 @import 'vendor/colorui/main.css';
 @import 'vendor/colorui/icon.css';
+
 /* 动画库 */
 @import 'common/css/animate.css';
+
 /* uView 样式文件 */
 @import 'uview-ui/index.scss';
 </style>
