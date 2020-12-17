@@ -14,3 +14,12 @@ export const getStorageSync = k => {
     return storage
   }
 }
+
+// 解决 MPA 页面返回被微信等缓存
+window.onpageshow = function (event) {
+  // event.persisted 判断浏览器是否有缓存, 有为true, 没有为false
+  if (event.persisted) {
+    console.log('页面重新加载 reload')
+    window.location.reload()
+  }
+}
