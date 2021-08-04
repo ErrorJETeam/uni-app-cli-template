@@ -6,9 +6,9 @@ const serverMode = 'online' // 接口环境
 
 const domains = {
   online: {
-    dev: 'https://m.hsyuntai.com/medd',
-    exp: 'https://m.hsyuntai.com/mede',
-    prod: 'https://m.hsyuntai.com/med'
+    dev: '',
+    exp: 'e',
+    prod: ''
   },
   local: {
     dev: 'http://localhost:12003/medd',
