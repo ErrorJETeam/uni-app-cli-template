@@ -6,12 +6,12 @@ import {
 
 // 域名
 const domains = {
-	'sh_dev': 'http://10.1.50.113',
-	'sh_prod': 'https://sk.cmsfg.com',
-	'kt_dev': 'http://www.tomtawsoft.com:50380',
-	'kt_prod': 'https://medcloud.kingtsoft.com',
-	'xj_dev': 'https://www.jyhk.com',
-	'xj_prod': 'https://jkfw.wsj.xjbt.gov.cn', //  https://jkfw.wsj.xjbt.gov.cn
+	'sh_dev': '',
+	'sh_prod': 'm',
+	'kt_dev': '',
+	'kt_prod': '',
+	'xj_dev': '',
+	'xj_prod': '',
 	'mock': 'https://www.gzamon.wang/api' // 仅仅用于测试请求库
 }
 
